@@ -1,0 +1,174 @@
+// FILE: general_queries.json
+{
+  "subject": "General",
+  "queries": [
+    {
+      "id": 1,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the capital city of Australia?",
+      "reference": "Canberra is the capital city of Australia. It is located in the Australian Capital Territory (ACT) and was purpose-built as the capital in the early 20th century as a compromise between Sydney and Melbourne."
+    },
+    {
+      "id": 2,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "How many continents are there on Earth, and can you name them?",
+      "reference": "There are seven continents on Earth: Africa, Antarctica, Asia, Australia (or Oceania), Europe, North America, and South America."
+    },
+    {
+      "id": 3,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the chemical symbol for gold?",
+      "reference": "The chemical symbol for gold is Au, which comes from the Latin word 'aurum' meaning 'shining dawn' or 'glow of sunrise'."
+    },
+    {
+      "id": 4,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is the difference between weather and climate?",
+      "reference": "Weather refers to short-term atmospheric conditions in a specific place at a specific time (temperature, humidity, precipitation, wind over hours or days). Climate refers to the average weather patterns in a region over a long period, typically 30 years or more. Weather can change rapidly, while climate changes gradually over decades or centuries."
+    },
+    {
+      "id": 5,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "Who invented the World Wide Web, and in what year was it first proposed?",
+      "reference": "Tim Berners-Lee invented the World Wide Web. He first proposed it in 1989 while working at CERN (European Organization for Nuclear Research) in Switzerland. The first website went live in 1991."
+    },
+    {
+      "id": 6,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is the greenhouse effect and why is it important for life on Earth?",
+      "reference": "The greenhouse effect is a natural process where certain gases in Earth's atmosphere (water vapor, carbon dioxide, methane, nitrous oxide) trap heat from the sun, preventing it from escaping back into space. This keeps Earth's average temperature at about 15°C (59°F) instead of -18°C (0°F), making the planet habitable. However, human activities increasing greenhouse gas concentrations are enhancing this effect, causing global warming."
+    },
+    {
+      "id": 7,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Explain the concept of herd immunity and calculate what percentage of a population needs to be immune if a disease has a basic reproduction number (R₀) of 5.",
+      "reference": "Herd immunity occurs when enough people in a population are immune to a disease (through vaccination or previous infection) that it cannot spread easily, protecting those who are not immune. The threshold is calculated using the formula: Herd Immunity Threshold = 1 - (1/R₀). For R₀ = 5: Threshold = 1 - (1/5) = 1 - 0.2 = 0.8 or 80%. Therefore, 80% of the population needs to be immune to achieve herd immunity for a disease with R₀ of 5."
+    },
+    {
+      "id": 8,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "What is the Fermi Paradox and what are three proposed solutions to it?",
+      "reference": "The Fermi Paradox is the apparent contradiction between the high probability of extraterrestrial civilizations existing in the universe (given the vast number of stars and planets) and the lack of evidence or contact with such civilizations. Three proposed solutions include: 1) The Great Filter hypothesis - suggesting that some barrier prevents civilizations from advancing to interstellar capability (either in our past or future); 2) The Zoo Hypothesis - proposing that advanced civilizations deliberately avoid contact with us, observing Earth like a nature reserve; 3) The Rare Earth Hypothesis - arguing that the conditions necessary for complex life are extremely rare, making Earth unusual despite the universe's size."
+    },
+    {
+      "id": 9,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: The United Nations (UN) is an international organization founded in 1945 after World War II by 51 countries committed to maintaining international peace and security, developing friendly relations among nations, and promoting social progress, better living standards, and human rights. Today, the UN has 193 member states and serves as a forum for its members to express their views in the General Assembly, the Security Council, the Economic and Social Council, and other bodies and committees. The UN's work reaches every corner of the globe, addressing issues ranging from sustainable development and environmental protection to emergency relief and humanitarian assistance. The organization also works on issues including gender equality, governance, health, and food production. The UN operates through its six main organs: the General Assembly, the Security Council, the Economic and Social Council, the Trusteeship Council, the International Court of Justice, and the Secretariat. Additionally, the UN system includes various specialized agencies, funds, and programs such as UNICEF, the World Health Organization, and the World Food Programme.",
+      "reference": "The United Nations, established in 1945 by 51 nations after World War II, now includes 193 member states. Its core mission encompasses maintaining global peace, fostering international cooperation, and advancing human rights and social progress. The UN provides a platform for member nations through bodies like the General Assembly and Security Council. Operating through six main organs, including the International Court of Justice and Secretariat, the organization addresses diverse global challenges from environmental protection to humanitarian aid. The UN system also encompasses specialized agencies like WHO, UNICEF, and the World Food Programme."
+    },
+    {
+      "id": 10,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Sleep is essential for human health and well-being, yet millions of people do not get enough quality rest. During sleep, the body undergoes numerous restorative processes. The brain consolidates memories, transferring information from short-term to long-term storage. Growth hormone is released, promoting tissue repair and muscle development. The immune system produces cytokines, proteins that help fight infection and inflammation. Sleep occurs in cycles of approximately 90 minutes, alternating between rapid eye movement (REM) and non-REM stages. Non-REM sleep progresses through three stages, from light sleep to deep sleep. Deep sleep is particularly important for physical restoration, while REM sleep supports cognitive functions and emotional regulation. Adults typically need 7-9 hours of sleep per night, though individual needs vary. Chronic sleep deprivation has been linked to numerous health problems, including obesity, diabetes, cardiovascular disease, weakened immunity, and mental health disorders such as depression and anxiety. Establishing good sleep hygiene practices, such as maintaining a consistent sleep schedule and creating a comfortable sleep environment, can significantly improve sleep quality.",
+      "reference": "Sleep is vital for health, enabling essential restorative processes in the body. During rest, the brain consolidates memories, growth hormone promotes tissue repair, and the immune system produces infection-fighting cytokines. Sleep cycles through REM and non-REM stages approximately every 90 minutes, with deep sleep supporting physical restoration and REM sleep aiding cognitive and emotional functions. Adults require 7-9 hours nightly. Chronic sleep deprivation increases risks of obesity, diabetes, cardiovascular disease, weakened immunity, and mental health disorders. Good sleep hygiene, including consistent schedules and comfortable environments, helps improve sleep quality."
+    },
+    {
+      "id": 11,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Recycling is the process of converting waste materials into new products, reducing the consumption of fresh raw materials and energy use. The practice helps decrease greenhouse gas emissions and conserves natural resources. Common recyclable materials include paper, cardboard, glass, metals like aluminum and steel, and certain plastics. The recycling process typically involves collection, sorting, processing, and manufacturing new products. Paper recycling saves trees and reduces water usage, while recycling aluminum cans saves 95% of the energy needed to produce new aluminum from raw ore. However, recycling has limitations. Not all materials are recyclable, and contamination from food waste or improper sorting can render entire batches unusable. Some plastics can only be recycled once or twice before degrading in quality. The economics of recycling also fluctuate based on commodity prices. Despite these challenges, recycling remains an important component of waste management strategies worldwide. Many communities have implemented curbside recycling programs, making it easier for residents to participate. Education about proper recycling practices is crucial for maximizing the effectiveness of these programs.",
+      "reference": "Recycling transforms waste into new products, conserving raw materials and energy while reducing greenhouse gas emissions. Common recyclables include paper, cardboard, glass, metals, and certain plastics. The process involves collection, sorting, processing, and manufacturing. Paper recycling saves trees and water, while aluminum recycling conserves 95% of production energy. However, challenges exist: not all materials are recyclable, contamination can ruin batches, and some plastics degrade after limited recycling cycles. Economic viability fluctuates with commodity prices. Despite limitations, recycling remains vital to waste management, with many communities offering curbside programs. Public education on proper practices is essential for program success."
+    },
+    {
+      "id": 12,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Artificial intelligence (AI) is transforming healthcare in numerous ways. Machine learning algorithms can analyze medical images such as X-rays, MRIs, and CT scans with remarkable accuracy, sometimes detecting abnormalities that human radiologists might miss. AI systems are being used to predict patient outcomes, identify individuals at risk for certain diseases, and recommend personalized treatment plans. In drug discovery, AI accelerates the identification of potential therapeutic compounds by analyzing vast molecular databases. Natural language processing enables AI to extract valuable information from electronic health records, medical literature, and clinical notes. Robotic surgery systems enhance precision and reduce recovery times for patients. Virtual health assistants provide 24/7 support for patients, answering questions and monitoring symptoms. However, the integration of AI in healthcare raises important ethical considerations. Privacy concerns arise from the collection and analysis of sensitive health data. Questions about accountability emerge when AI systems make diagnostic errors. There is also risk of algorithmic bias if training data does not adequately represent diverse populations. Regulatory frameworks are still evolving to address these challenges while enabling innovation. Healthcare professionals must develop new skills to work effectively alongside AI tools while maintaining the human connection that is central to patient care.",
+      "reference": "Artificial intelligence is revolutionizing healthcare through multiple applications. Machine learning algorithms analyze medical images with high accuracy, while AI systems predict patient outcomes and personalize treatment plans. In drug discovery, AI accelerates identification of therapeutic compounds. Natural language processing extracts insights from health records, and robotic surgery improves precision. Virtual assistants provide continuous patient support. However, significant ethical challenges exist, including data privacy concerns, accountability for diagnostic errors, and potential algorithmic bias from non-representative training data. Regulatory frameworks continue evolving to balance innovation with safety. Healthcare professionals must adapt their skills while preserving essential human connections in patient care."
+    },
+    {
+      "id": 13,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: The concept of sustainable development emerged prominently in the 1987 Brundtland Report, which defined it as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. This concept recognizes the interconnection between economic growth, environmental protection, and social equity—often called the three pillars of sustainability. Sustainable development requires balancing these sometimes competing priorities. Economic development is necessary to reduce poverty and improve living standards, but unchecked growth can deplete natural resources and damage ecosystems. Environmental sustainability demands that we preserve biodiversity, reduce pollution, and combat climate change. Social sustainability requires ensuring equitable access to resources, opportunities, and basic services. The United Nations' 2030 Agenda for Sustainable Development established 17 Sustainable Development Goals (SDGs) covering poverty, hunger, health, education, gender equality, clean water, energy, economic growth, infrastructure, inequality, sustainable cities, responsible consumption, climate action, marine life, land ecosystems, peace and justice, and global partnerships. Achieving these goals requires collaboration among governments, businesses, civil society organizations, and individuals. Critics argue that true sustainability may be incompatible with continuous economic growth, suggesting that developed nations should focus on well-being rather than GDP expansion. Others advocate for technological solutions and green growth strategies that decouple economic progress from environmental degradation.",
+      "reference": "Sustainable development, defined in the 1987 Brundtland Report, means meeting present needs without compromising future generations' ability to meet theirs. It balances three interconnected pillars: economic growth, environmental protection, and social equity. While economic development reduces poverty, unchecked growth threatens resources and ecosystems. Environmental sustainability requires preserving biodiversity and combating climate change, while social sustainability ensures equitable access to resources and services. The UN's 2030 Agenda established 17 Sustainable Development Goals spanning poverty, health, education, climate, and global partnerships. Implementation requires collaboration among governments, businesses, and citizens. Debate continues between advocates of technological green growth and those questioning growth-based paradigms."
+    },
+    {
+      "id": 14,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: The human microbiome refers to the trillions of microorganisms—bacteria, viruses, fungi, and other microscopic life forms—that inhabit our bodies. These microbial communities are found throughout the body, with the largest concentration residing in the gut. The gut microbiome alone contains an estimated 100 trillion bacteria representing thousands of different species. Far from being passive passengers, these microorganisms play crucial roles in human health. They help digest food, particularly complex carbohydrates that human enzymes cannot break down. They synthesize essential vitamins such as vitamin K and several B vitamins. The microbiome trains and modulates the immune system, helping distinguish between harmful pathogens and harmless substances. It produces neurotransmitters that influence brain function and mood—a connection often called the gut-brain axis. Research has linked microbiome composition to numerous health conditions, including obesity, diabetes, inflammatory bowel disease, allergies, autoimmune disorders, and mental health conditions like depression and anxiety. Diet significantly influences microbiome composition, with high-fiber, plant-based diets generally promoting greater microbial diversity. Antibiotics, while necessary to fight infections, can disrupt the microbiome for months. The emerging field of microbiome research offers promising therapeutic possibilities, including fecal microbiota transplants for treating certain infections and probiotics for supporting gut health. Scientists are working to understand how specific microbial communities influence health outcomes and how these communities might be intentionally modified to prevent or treat disease.",
+      "reference": "The human microbiome comprises trillions of microorganisms inhabiting our bodies, with the gut hosting approximately 100 trillion bacteria across thousands of species. These microbes perform essential functions: digesting complex carbohydrates, synthesizing vitamins K and B, training the immune system, and producing neurotransmitters that affect mood via the gut-brain axis. Research links microbiome composition to obesity, diabetes, inflammatory bowel disease, autoimmune disorders, and mental health conditions. High-fiber, plant-based diets promote microbial diversity, while antibiotics can cause prolonged disruption. Promising therapeutic developments include fecal microbiota transplants and probiotics, with ongoing research exploring targeted microbiome modifications for disease prevention and treatment."
+    },
+    {
+      "id": 15,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: Quantum computing represents a fundamental shift in computational paradigms, leveraging the principles of quantum mechanics to process information in ways impossible for classical computers. While classical computers use bits that exist in one of two states (0 or 1), quantum computers use quantum bits or qubits that can exist in superposition—simultaneously representing both 0 and 1 until measured. This property, combined with quantum entanglement (where qubits become correlated so that the state of one instantly influences another regardless of distance), enables quantum computers to explore vast solution spaces exponentially faster than classical machines for certain problems. Quantum parallelism allows a quantum computer with n qubits to process 2^n states simultaneously. This capability makes quantum computers potentially transformative for applications like cryptography, drug discovery, financial modeling, optimization problems, and machine learning. Shor's algorithm demonstrates that a sufficiently powerful quantum computer could break widely used encryption systems by factoring large numbers exponentially faster than classical computers. Meanwhile, quantum simulation could revolutionize materials science and pharmaceutical development by accurately modeling molecular interactions. However, significant challenges remain. Qubits are extremely fragile, requiring near-absolute-zero temperatures and isolation from environmental interference to maintain coherence. Quantum error correction requires thousands of physical qubits to create one reliable logical qubit. Current quantum computers, with tens to hundreds of qubits, are still in the noisy intermediate-scale quantum (NISQ) era, capable of demonstrating quantum advantage for specific tasks but not yet practical for most real-world applications. The race to build fault-tolerant, large-scale quantum computers continues, with major investments from governments and technology companies worldwide.",
+      "reference": "Quantum computing harnesses quantum mechanics principles for unprecedented computational capabilities. Unlike classical bits (0 or 1), qubits exist in superposition, representing both states simultaneously. Combined with quantum entanglement, this enables exponentially faster processing for certain problems—n qubits process 2^n states simultaneously. Applications include breaking encryption via Shor's algorithm, drug discovery through molecular simulation, and optimization problems. However, major challenges persist: qubits require near-absolute-zero temperatures and remain extremely fragile. Current noisy intermediate-scale quantum (NISQ) computers have limited qubits, demonstrating quantum advantage in specific tasks but lacking practical broad application. Achieving fault-tolerant, large-scale quantum computing remains an active global pursuit."
+    },
+    {
+      "id": 16,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: Neuroplasticity, the brain's ability to reorganize itself by forming new neural connections throughout life, has revolutionized our understanding of the brain. Previously, scientists believed that the adult brain was relatively fixed, with neural pathways established early in life remaining unchanged. We now know that the brain continuously adapts in response to learning, experience, and injury. Structural plasticity involves physical changes in the brain, including the growth of new neurons (neurogenesis) in certain regions like the hippocampus, the formation of new synaptic connections, and the strengthening or weakening of existing synapses. Functional plasticity allows the brain to transfer functions from damaged areas to undamaged areas. Experience-dependent plasticity explains how repeated activities strengthen relevant neural pathways—the principle behind skill acquisition and habit formation. This understanding has profound implications for education, rehabilitation, and mental health treatment. Learning new skills, practicing mindfulness meditation, engaging in physical exercise, and maintaining social connections all promote positive neuroplasticity. Musicians, for example, show enlarged brain regions associated with motor control and auditory processing compared to non-musicians. London taxi drivers famously demonstrated larger hippocampi related to their extensive spatial navigation training. In rehabilitation, constraint-induced movement therapy forces stroke patients to use affected limbs, stimulating brain reorganization to restore function. Cognitive behavioral therapy leverages neuroplasticity to help patients with depression and anxiety establish healthier thought patterns. However, neuroplasticity is not always beneficial. Chronic pain, addiction, and post-traumatic stress disorder involve maladaptive neural changes that perpetuate negative patterns. Understanding these processes helps develop more effective interventions.",
+      "reference": "Neuroplasticity describes the brain's lifelong ability to reorganize by forming new neural connections, overturning previous beliefs about adult brain rigidity. Structural plasticity includes neurogenesis, new synaptic connections, and synapse strengthening, while functional plasticity enables function transfer from damaged to healthy areas. Experience-dependent plasticity strengthens pathways through repeated activities, underlying skill acquisition. Research shows musicians have enlarged motor and auditory regions, while London taxi drivers developed larger hippocampi through navigation training. Applications include rehabilitation therapies for stroke recovery and cognitive behavioral therapy for mental health. However, neuroplasticity also underlies maladaptive changes in chronic pain, addiction, and PTSD, informing more targeted interventions."
+    },
+    {
+      "id": 17,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain how vaccines work to protect the body from diseases.",
+      "reference": "Vaccines work by training the immune system to recognize and fight specific pathogens without causing the disease. Key points: 1) Vaccines contain weakened, killed, or partial versions of pathogens (or instructions to make pathogen proteins); 2) The immune system responds by producing antibodies and creating memory cells; 3) These memory cells remain in the body, ready to quickly recognize and fight the real pathogen if encountered later; 4) This 'memory' response is faster and stronger than the initial response, often preventing illness entirely or reducing severity; 5) Herd immunity develops when enough people are vaccinated, protecting those who cannot be vaccinated."
+    },
+    {
+      "id": 18,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain why the sky appears blue during the day.",
+      "reference": "The sky appears blue due to a phenomenon called Rayleigh scattering. Key points: 1) Sunlight contains all colors of the visible spectrum; 2) When sunlight enters Earth's atmosphere, it collides with gas molecules (primarily nitrogen and oxygen); 3) Shorter wavelengths of light (blue and violet) scatter more than longer wavelengths (red and orange) because scattering intensity is inversely proportional to the fourth power of wavelength; 4) Although violet scatters even more than blue, our eyes are more sensitive to blue light, and some violet light is absorbed in the upper atmosphere; 5) The scattered blue light reaches our eyes from all directions, making the sky appear blue; 6) At sunrise and sunset, light travels through more atmosphere, scattering away most blue light and allowing red/orange wavelengths to dominate."
+    },
+    {
+      "id": 19,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain the water cycle and its main stages.",
+      "reference": "The water cycle (hydrological cycle) is the continuous movement of water on, above, and below Earth's surface. Main stages: 1) Evaporation: Heat from the sun causes water from oceans, lakes, and rivers to convert from liquid to water vapor, rising into the atmosphere; 2) Transpiration: Plants release water vapor through their leaves, contributing to atmospheric moisture; 3) Condensation: As water vapor rises and cools, it condenses into tiny water droplets or ice crystals, forming clouds; 4) Precipitation: When droplets combine and become heavy enough, they fall as rain, snow, sleet, or hail; 5) Collection: Water accumulates in oceans, lakes, rivers, and groundwater; 6) Runoff: Water flows over land into bodies of water; 7) Infiltration: Water seeps into the ground, replenishing groundwater. This cycle continuously recycles Earth's water, powered by solar energy and gravity."
+    },
+    {
+      "id": 20,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of inflation in economics and its effects on an economy.",
+      "reference": "Inflation is the general increase in prices and decline in purchasing power of money over time. Key explanations: 1) Causes include demand-pull inflation (too much money chasing too few goods), cost-push inflation (increased production costs), and monetary factors (excessive money supply growth); 2) Measured using indices like CPI (Consumer Price Index); 3) Effects on economy: reduces purchasing power of savings, erodes fixed incomes, can stimulate spending (people buy before prices rise), creates uncertainty for businesses, affects interest rates; 4) Moderate inflation (2-3%) is generally considered healthy for economic growth; 5) Hyperinflation causes severe economic disruption; deflation can also be harmful, discouraging spending; 6) Central banks use monetary policy (interest rates, money supply) to control inflation; 7) Winners from inflation include borrowers and asset owners; losers include savers and those on fixed incomes."
+    },
+    {
+      "id": 21,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain how natural selection drives evolution.",
+      "reference": "Natural selection is the mechanism by which evolution occurs, proposed by Charles Darwin. Key explanations: 1) Variation: Individuals within a population have genetic differences affecting traits; 2) Inheritance: These traits are passed from parents to offspring; 3) Overproduction: Organisms produce more offspring than can survive; 4) Differential survival: Individuals with traits better suited to their environment are more likely to survive (survival of the fittest); 5) Differential reproduction: Survivors are more likely to reproduce, passing advantageous traits to offspring; 6) Accumulation: Over many generations, beneficial traits become more common in the population; 7) Speciation: Given enough time and environmental changes, populations can diverge into new species; 8) Examples include antibiotic resistance in bacteria, peppered moth coloration changes during industrial revolution, and Darwin's finches with specialized beaks."
+    },
+    {
+      "id": 22,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of supply and demand and how they determine market prices.",
+      "reference": "Supply and demand is a fundamental economic model explaining how prices are determined in a market economy. Key explanations: 1) Demand represents consumers' willingness and ability to purchase goods at various prices—typically, lower prices mean higher quantity demanded (law of demand); 2) Supply represents producers' willingness to sell goods at various prices—typically, higher prices mean higher quantity supplied (law of supply); 3) Equilibrium occurs where supply and demand curves intersect, determining market price and quantity; 4) Surplus occurs when price is above equilibrium (supply exceeds demand), pushing prices down; 5) Shortage occurs when price is below equilibrium (demand exceeds supply), pushing prices up; 6) Shifts in demand (changes in income, preferences, related goods' prices, expectations, number of buyers) move the entire demand curve; 7) Shifts in supply (changes in production costs, technology, expectations, number of sellers) move the entire supply curve; 8) These shifts create new equilibrium points, changing market prices and quantities."
+    },
+    {
+      "id": 23,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain the theory of general relativity and how it differs from Newtonian gravity.",
+      "reference": "General relativity, developed by Einstein in 1915, describes gravity as the curvature of spacetime caused by mass and energy. Key explanations: 1) Newtonian gravity treats space and time as absolute and separate, with gravity as an instantaneous force between masses; 2) General relativity unifies space and time into four-dimensional spacetime; 3) Mass and energy curve spacetime, and objects follow the straightest possible paths (geodesics) through curved spacetime—what we perceive as gravity; 4) Key equation: Einstein field equations relate spacetime curvature to mass-energy distribution; 5) Predictions differing from Newton: light bending around massive objects (gravitational lensing), time dilation near massive objects, gravitational waves, black holes, Mercury's orbital precession; 6) All predictions confirmed experimentally (gravitational waves detected in 2015); 7) At low speeds and weak gravitational fields, general relativity reduces to Newtonian gravity; 8) Remains incompatible with quantum mechanics, motivating search for quantum gravity."
+    },
+    {
+      "id": 24,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain the concept of blockchain technology and how it enables cryptocurrencies to function without central authorities.",
+      "reference": "Blockchain is a distributed ledger technology enabling decentralized, trustless transactions. Key explanations: 1) Structure: A chain of blocks, each containing transaction data, a timestamp, and a cryptographic hash of the previous block, creating an immutable chain; 2) Decentralization: Copies of the blockchain are maintained by many nodes (computers) across the network, with no central authority; 3) Consensus mechanisms: Protocols like Proof of Work (miners solve cryptographic puzzles) or Proof of Stake (validators stake cryptocurrency) ensure all nodes agree on the valid chain; 4) Cryptographic security: Public-key cryptography enables secure digital signatures for transactions; hashing ensures data integrity; 5) Immutability: Altering any block would change its hash, invalidating all subsequent blocks, making tampering computationally infeasible; 6) For cryptocurrencies: enables tracking ownership without banks, prevents double-spending, creates transparent transaction history; 7) Smart contracts: self-executing code on blockchain enables programmable transactions; 8) Limitations include scalability challenges, energy consumption (for Proof of Work), and regulatory uncertainty."
+    }
+  ]
+}

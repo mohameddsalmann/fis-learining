@@ -1,0 +1,174 @@
+// FILE: mathematics_queries.json
+{
+  "subject": "Mathematics",
+  "queries": [
+    {
+      "id": 1,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the value of 7! (7 factorial)?",
+      "reference": "7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5040"
+    },
+    {
+      "id": 2,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the formula for the area of a circle with radius r?",
+      "reference": "The area of a circle is A = πr², where r is the radius and π (pi) is approximately 3.14159."
+    },
+    {
+      "id": 3,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "Solve for x: 3x + 7 = 22",
+      "reference": "3x + 7 = 22; 3x = 22 - 7; 3x = 15; x = 5"
+    },
+    {
+      "id": 4,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "Find the derivative of f(x) = x³ - 4x² + 2x - 7",
+      "reference": "Using the power rule, f'(x) = 3x² - 8x + 2. The derivative of x³ is 3x², the derivative of -4x² is -8x, the derivative of 2x is 2, and the derivative of the constant -7 is 0."
+    },
+    {
+      "id": 5,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "A right triangle has legs of length 5 cm and 12 cm. What is the length of the hypotenuse?",
+      "reference": "Using the Pythagorean theorem: c² = a² + b²; c² = 5² + 12² = 25 + 144 = 169; c = √169 = 13 cm. The hypotenuse is 13 cm."
+    },
+    {
+      "id": 6,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is the sum of the first 50 positive integers?",
+      "reference": "Using the formula for arithmetic series: S = n(n+1)/2 = 50(51)/2 = 2550/2 = 1275. The sum of the first 50 positive integers is 1275."
+    },
+    {
+      "id": 7,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Evaluate the integral: ∫(2x + 3)e^x dx",
+      "reference": "Using integration by parts twice (or the formula for ∫(ax+b)e^x dx): Let u = 2x + 3, dv = e^x dx. Then du = 2dx, v = e^x. ∫(2x+3)e^x dx = (2x+3)e^x - ∫2e^x dx = (2x+3)e^x - 2e^x + C = e^x(2x + 3 - 2) + C = e^x(2x + 1) + C"
+    },
+    {
+      "id": 8,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Find all solutions to the equation: x⁴ - 5x² + 4 = 0",
+      "reference": "Substitute u = x²: u² - 5u + 4 = 0. Factor: (u - 4)(u - 1) = 0. So u = 4 or u = 1. Since u = x²: if x² = 4, then x = ±2; if x² = 1, then x = ±1. The four solutions are x = -2, -1, 1, 2."
+    },
+    {
+      "id": 9,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: The Pythagorean theorem is one of the most famous and widely used theorems in mathematics. Named after the ancient Greek mathematician Pythagoras, who lived around 570-495 BCE, this theorem describes a fundamental relationship in Euclidean geometry. The theorem states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This relationship can be expressed algebraically as a² + b² = c², where c represents the hypotenuse and a and b represent the other two sides. The theorem has numerous practical applications, from construction and navigation to computer graphics and distance calculations in coordinate systems. While Pythagoras is credited with its formal proof, evidence suggests that Babylonian mathematicians knew of this relationship over a thousand years earlier. The theorem only applies to right triangles in Euclidean (flat) geometry; in non-Euclidean geometries, the relationship between the sides of a right triangle differs.",
+      "reference": "The Pythagorean theorem, attributed to ancient Greek mathematician Pythagoras (570-495 BCE), establishes a fundamental relationship in right triangles. It states that the square of the hypotenuse equals the sum of squares of the other two sides, expressed as a² + b² = c². This principle has wide practical applications in construction, navigation, computer graphics, and coordinate geometry. Though credited to Pythagoras for its formal proof, Babylonian mathematicians understood this relationship over a millennium earlier. Importantly, the theorem applies only to right triangles in Euclidean geometry; non-Euclidean geometries yield different relationships between triangle sides."
+    },
+    {
+      "id": 10,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Prime numbers have fascinated mathematicians for millennia. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. The first few prime numbers are 2, 3, 5, 7, 11, 13, 17, 19, 23, and 29. Note that 2 is the only even prime number, as all other even numbers are divisible by 2. Euclid, around 300 BCE, proved that there are infinitely many prime numbers using a beautiful proof by contradiction. The distribution of primes among integers is irregular and unpredictable, becoming sparser as numbers get larger, though primes continue infinitely. The Prime Number Theorem, proved in 1896, describes the asymptotic distribution of primes, stating that the number of primes less than n is approximately n/ln(n). Prime numbers are fundamental to modern cryptography, particularly in RSA encryption, which relies on the computational difficulty of factoring large numbers into their prime components. Finding increasingly large prime numbers continues to challenge mathematicians and computer scientists, with the largest known primes having millions of digits.",
+      "reference": "Prime numbers are natural numbers greater than 1 divisible only by 1 and themselves, with 2 being the only even prime. Euclid proved infinitely many primes exist around 300 BCE using proof by contradiction. While primes become sparser among larger integers, they continue infinitely. The Prime Number Theorem (1896) describes their asymptotic distribution: primes less than n approximately equal n/ln(n). Modern cryptography, especially RSA encryption, relies heavily on primes because factoring large numbers into prime components is computationally difficult. Finding ever-larger primes remains an ongoing mathematical challenge, with the largest known primes containing millions of digits."
+    },
+    {
+      "id": 11,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Fractions represent parts of a whole and are essential for understanding mathematics. A fraction consists of two numbers: the numerator (top number) indicates how many parts we have, while the denominator (bottom number) shows how many equal parts the whole is divided into. For example, 3/4 means 3 parts out of 4 equal parts. Fractions can be proper (numerator less than denominator, like 2/5), improper (numerator greater than or equal to denominator, like 7/3), or mixed numbers (whole number plus fraction, like 2⅓). Equivalent fractions represent the same value despite different numerators and denominators; for instance, 1/2, 2/4, and 3/6 are all equivalent. To add or subtract fractions, they must have common denominators. Multiplication involves multiplying numerators and denominators separately, while division requires multiplying by the reciprocal. Converting between fractions, decimals, and percentages is a fundamental skill. Understanding fractions builds the foundation for algebra, ratios, proportions, and higher mathematics. They appear constantly in daily life, from cooking measurements to financial calculations.",
+      "reference": "Fractions represent parts of a whole using a numerator (parts we have) over a denominator (equal parts in the whole). They can be proper (numerator < denominator), improper (numerator ≥ denominator), or mixed numbers. Equivalent fractions like 1/2, 2/4, and 3/6 represent the same value. Adding or subtracting requires common denominators, multiplication involves multiplying numerators and denominators separately, and division uses the reciprocal. Converting between fractions, decimals, and percentages is essential. Fractions form the foundation for algebra, ratios, and higher mathematics, with constant applications in daily life from cooking to finance."
+    },
+    {
+      "id": 12,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Calculus, developed independently by Isaac Newton and Gottfried Wilhelm Leibniz in the late 17th century, revolutionized mathematics and science. This branch of mathematics deals with continuous change and consists of two main branches: differential calculus and integral calculus. Differential calculus concerns the study of rates of change and slopes of curves. The derivative, the central concept, measures the instantaneous rate of change of a function at any point. For a function f(x), the derivative f'(x) is defined as the limit of [f(x+h) - f(x)]/h as h approaches zero. Integral calculus deals with accumulation of quantities and areas under curves. The definite integral calculates the exact area between a function and the x-axis over a specified interval. The Fundamental Theorem of Calculus establishes the profound connection between differentiation and integration, showing they are inverse operations. If F(x) is an antiderivative of f(x), then the definite integral from a to b of f(x)dx equals F(b) - F(a). Calculus applications pervade science and engineering: physics uses it for motion, force, and energy; economics applies it to optimization and marginal analysis; biology employs it for population growth models; and engineering relies on it for design and analysis of systems.",
+      "reference": "Calculus, independently developed by Newton and Leibniz in the late 17th century, studies continuous change through two branches. Differential calculus examines rates of change through derivatives, defined as the limit of [f(x+h) - f(x)]/h as h approaches zero. Integral calculus addresses accumulation and areas under curves through definite integrals. The Fundamental Theorem of Calculus connects these branches, proving differentiation and integration are inverse operations: the integral from a to b of f(x)dx equals F(b) - F(a), where F is f's antiderivative. Applications span physics (motion, force), economics (optimization), biology (population models), and engineering (system design)."
+    },
+    {
+      "id": 13,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Linear algebra is a branch of mathematics that studies vectors, vector spaces, linear mappings, and systems of linear equations. A vector is a mathematical object with both magnitude and direction, represented as an ordered list of numbers. Vector spaces are collections of vectors that can be added together and multiplied by scalars while remaining in the space. Matrices are rectangular arrays of numbers that can represent linear transformations—operations that map vectors from one space to another while preserving vector addition and scalar multiplication. Matrix operations include addition, scalar multiplication, and matrix multiplication. The determinant of a square matrix provides information about the transformation it represents, including whether it is invertible. Eigenvalues and eigenvectors describe special vectors that, when transformed by a matrix, only change in scale, not direction. These concepts have profound applications in computer graphics for rotations and scaling, in data science for dimensionality reduction techniques like Principal Component Analysis, in physics for quantum mechanics and systems of differential equations, in engineering for signal processing, and in economics for input-output models. Linear algebra forms the mathematical foundation for machine learning and artificial intelligence, where vast matrices represent data and transformations.",
+      "reference": "Linear algebra studies vectors, vector spaces, linear mappings, and linear equation systems. Vectors are mathematical objects with magnitude and direction, represented as ordered number lists. Vector spaces contain vectors closed under addition and scalar multiplication. Matrices are number arrays representing linear transformations that preserve vector operations. Key concepts include determinants (indicating invertibility), eigenvalues, and eigenvectors (vectors that only scale under transformation). Applications span computer graphics (rotations, scaling), data science (dimensionality reduction, PCA), physics (quantum mechanics), signal processing, and economics. Linear algebra provides the mathematical foundation for machine learning and AI, where matrices represent data and transformations."
+    },
+    {
+      "id": 14,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Probability theory provides the mathematical framework for analyzing random phenomena and uncertainty. The probability of an event is a number between 0 and 1, where 0 indicates impossibility and 1 indicates certainty. For equally likely outcomes, probability equals favorable outcomes divided by total outcomes. The complement rule states that P(not A) = 1 - P(A). For independent events, the multiplication rule gives P(A and B) = P(A) × P(B). The addition rule for mutually exclusive events states P(A or B) = P(A) + P(B), while for non-mutually exclusive events, P(A or B) = P(A) + P(B) - P(A and B). Conditional probability, P(A|B), represents the probability of A given that B has occurred, calculated as P(A and B)/P(B). Bayes' theorem allows updating probabilities based on new evidence: P(A|B) = P(B|A) × P(A) / P(B). Random variables map outcomes to numerical values, with discrete variables taking distinct values and continuous variables taking any value in an interval. Expected value represents the average outcome over many trials. Probability distributions describe the likelihood of different outcomes, with common distributions including binomial, Poisson, normal, and exponential.",
+      "reference": "Probability theory mathematically analyzes random phenomena, assigning events values between 0 (impossible) and 1 (certain). Key rules include: complement (P(not A) = 1 - P(A)), multiplication for independent events (P(A and B) = P(A) × P(B)), and addition rules for mutually exclusive and non-exclusive events. Conditional probability P(A|B) represents probability of A given B occurred. Bayes' theorem updates probabilities with new evidence: P(A|B) = P(B|A) × P(A) / P(B). Random variables map outcomes to numbers—discrete or continuous. Expected value represents average outcomes over many trials. Common probability distributions include binomial, Poisson, normal, and exponential."
+    },
+    {
+      "id": 15,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: Group theory is a branch of abstract algebra that studies algebraic structures called groups. A group consists of a set of elements together with an operation that combines any two elements to form a third element, satisfying four conditions: closure (combining two elements produces an element in the set), associativity ((a·b)·c = a·(b·c)), identity (there exists an element e such that a·e = e·a = a for all a), and invertibility (each element has an inverse). The integers under addition form a group, with 0 as identity and negation providing inverses. The nonzero real numbers under multiplication form a group with 1 as identity. Symmetry groups describe the symmetries of geometric objects—the symmetries of a square form a group with eight elements. Permutation groups consist of all possible rearrangements of a set. Subgroups are subsets that themselves form groups under the same operation. Group homomorphisms are functions between groups that preserve structure. The classification of finite simple groups, completed in 2004 after decades of work, represents one of mathematics' greatest achievements. Group theory has applications throughout mathematics and science: it underlies the study of polynomial equations, provides the mathematical framework for particle physics (gauge symmetries), explains molecular structure in chemistry, and enables cryptographic systems.",
+      "reference": "Group theory studies algebraic structures satisfying four axioms: closure, associativity, identity element existence, and invertibility. Examples include integers under addition (identity: 0) and nonzero reals under multiplication (identity: 1). Symmetry groups describe geometric symmetries—a square has eight symmetry elements. Permutation groups contain all rearrangements of a set. Subgroups are subsets forming groups under the same operation; homomorphisms preserve group structure between groups. The classification of finite simple groups, completed in 2004, represents a monumental mathematical achievement. Applications span polynomial equation theory, particle physics (gauge symmetries), molecular chemistry, and cryptography."
+    },
+    {
+      "id": 16,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, is one of the most important unsolved problems in mathematics and carries a one-million-dollar prize from the Clay Mathematics Institute. The hypothesis concerns the Riemann zeta function, defined for complex numbers s with real part greater than 1 as ζ(s) = Σ(1/n^s) for n from 1 to infinity. Through analytic continuation, this function extends to most complex numbers. The zeta function equals zero at negative even integers (-2, -4, -6, ...), called trivial zeros. The Riemann Hypothesis states that all non-trivial zeros have real part exactly equal to 1/2—that is, they lie on the critical line Re(s) = 1/2 in the complex plane. Billions of zeros have been computed, all lying on this critical line, but no proof exists. The hypothesis has profound implications for the distribution of prime numbers. The Prime Number Theorem gives the average distribution, but the Riemann Hypothesis would provide much tighter bounds on how primes deviate from this average. The hypothesis connects to numerous areas of mathematics, including algebraic geometry, random matrix theory, and quantum physics. Many theorems in number theory have been proved conditional on the Riemann Hypothesis being true.",
+      "reference": "The Riemann Hypothesis, proposed in 1859, remains one of mathematics' greatest unsolved problems with a million-dollar prize. It concerns the Riemann zeta function ζ(s) = Σ(1/n^s), extended via analytic continuation. While 'trivial zeros' occur at negative even integers, the hypothesis states all non-trivial zeros have real part exactly 1/2, lying on the 'critical line.' Though billions of computed zeros confirm this pattern, no proof exists. The hypothesis would provide precise bounds on prime number distribution beyond the Prime Number Theorem's approximation. It connects to algebraic geometry, random matrix theory, and quantum physics, with many number theory theorems proved conditionally on its truth."
+    },
+    {
+      "id": 17,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain what a quadratic equation is and how to solve one using the quadratic formula.",
+      "reference": "A quadratic equation is a polynomial equation of degree 2, in the standard form ax² + bx + c = 0, where a ≠ 0. Key points: 1) The quadratic formula solves any quadratic equation: x = (-b ± √(b² - 4ac)) / (2a); 2) The discriminant (b² - 4ac) determines the nature of solutions: if positive, two distinct real solutions; if zero, one repeated real solution; if negative, two complex conjugate solutions; 3) Example: For x² - 5x + 6 = 0, a=1, b=-5, c=6. Discriminant = 25 - 24 = 1. x = (5 ± 1)/2, giving x = 3 or x = 2; 4) Alternative methods include factoring (when possible) and completing the square (which derives the formula)."
+    },
+    {
+      "id": 18,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain what the mean, median, and mode are and when each measure of central tendency is most useful.",
+      "reference": "Mean, median, and mode are measures of central tendency describing a dataset's center. Key explanations: 1) Mean (average) is the sum of all values divided by the count—useful for symmetric distributions without outliers; sensitive to extreme values; 2) Median is the middle value when data is ordered—useful for skewed distributions or data with outliers; represents the 50th percentile; for even-numbered datasets, average the two middle values; 3) Mode is the most frequently occurring value—useful for categorical data; a dataset can have no mode, one mode, or multiple modes; 4) For symmetric distributions, mean ≈ median ≈ mode; 5) For right-skewed data, mean > median > mode; for left-skewed, mean < median < mode; 6) Example: Income data often uses median because outliers (billionaires) skew the mean upward."
+    },
+    {
+      "id": 19,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain the concept of slope in linear equations and how to calculate it.",
+      "reference": "Slope measures the steepness and direction of a line, representing the rate of change. Key explanations: 1) Slope (m) is calculated as rise over run: m = (y₂ - y₁)/(x₂ - x₁) = Δy/Δx; 2) Positive slope means the line rises from left to right; negative slope means it falls; 3) Zero slope indicates a horizontal line; undefined slope indicates a vertical line; 4) In the slope-intercept form y = mx + b, m is the slope and b is the y-intercept; 5) Larger absolute values mean steeper lines; 6) Parallel lines have equal slopes; perpendicular lines have slopes that are negative reciprocals (m₁ × m₂ = -1); 7) Example: For points (1, 2) and (4, 8), slope = (8-2)/(4-1) = 6/3 = 2, meaning y increases by 2 for every 1-unit increase in x."
+    },
+    {
+      "id": 20,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of limits in calculus and their importance.",
+      "reference": "Limits describe the behavior of a function as its input approaches a particular value. Key explanations: 1) Notation: lim(x→a) f(x) = L means f(x) gets arbitrarily close to L as x approaches a; 2) Limits can exist even when f(a) is undefined (e.g., lim(x→0) sin(x)/x = 1); 3) One-sided limits: lim(x→a⁺) approaches from right, lim(x→a⁻) from left; limit exists only if both equal; 4) Limit laws allow combining limits: sum, product, quotient, constant multiple; 5) Importance: derivatives are defined as limits: f'(x) = lim(h→0) [f(x+h) - f(x)]/h; integrals are limits of Riemann sums; continuity is defined using limits; 6) Techniques include direct substitution, factoring, rationalization, L'Hôpital's rule for indeterminate forms (0/0, ∞/∞); 7) Limits enable rigorous treatment of infinity and infinitesimals, foundational to calculus."
+    },
+    {
+      "id": 21,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of mathematical proof by induction and provide an example.",
+      "reference": "Mathematical induction proves statements true for all natural numbers using a two-step process. Key explanations: 1) Base case: Prove the statement is true for the first value (usually n=1); 2) Inductive step: Assume the statement is true for n=k (inductive hypothesis), then prove it's true for n=k+1; 3) By these steps, the statement is true for all natural numbers (like dominoes falling); 4) Example: Prove Σᵢ₌₁ⁿ i = n(n+1)/2; Base case (n=1): 1 = 1(2)/2 = 1 ✓; Inductive step: Assume true for k: Σᵢ₌₁ᵏ i = k(k+1)/2; For k+1: Σᵢ₌₁ᵏ⁺¹ i = Σᵢ₌₁ᵏ i + (k+1) = k(k+1)/2 + (k+1) = (k+1)(k/2 + 1) = (k+1)(k+2)/2 ✓; 5) Strong induction assumes the statement for all values ≤ k, useful for recursive definitions; 6) Induction is fundamental for sequences, series, and algorithm correctness proofs."
+    },
+    {
+      "id": 22,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of logarithms, their properties, and their relationship to exponentials.",
+      "reference": "Logarithms are the inverse of exponential functions. Key explanations: 1) Definition: logₐ(x) = y means aʸ = x; the logarithm asks 'what power of a gives x?'; 2) Common bases: log₁₀ (common log), ln = logₑ (natural log), log₂ (binary log); 3) Key properties: logₐ(xy) = logₐ(x) + logₐ(y); logₐ(x/y) = logₐ(x) - logₐ(y); logₐ(xⁿ) = n·logₐ(x); logₐ(1) = 0; logₐ(a) = 1; 4) Change of base: logₐ(x) = logₓ(x)/logₓ(a); 5) Inverse relationship: logₐ(aˣ) = x and a^(logₐ(x)) = x; 6) Applications: earthquake magnitude (Richter scale), sound intensity (decibels), pH in chemistry, computational complexity, exponential growth/decay problems; 7) Graphically, y = logₐ(x) is the reflection of y = aˣ over the line y = x; 8) Natural logarithm is especially important in calculus: d/dx(ln x) = 1/x and ∫(1/x)dx = ln|x| + C."
+    },
+    {
+      "id": 23,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain the Fundamental Theorem of Calculus and why it is significant.",
+      "reference": "The Fundamental Theorem of Calculus (FTC) connects differentiation and integration, showing they are inverse operations. Key explanations: 1) Part 1: If f is continuous on [a,b] and F(x) = ∫ₐˣ f(t)dt, then F'(x) = f(x). This means the derivative of an accumulation function equals the original function; 2) Part 2: If f is continuous on [a,b] and F is any antiderivative of f, then ∫ₐᵇ f(x)dx = F(b) - F(a). This enables calculating definite integrals using antiderivatives; 3) Significance: Before FTC, integration meant tedious limit calculations of Riemann sums; FTC makes integration practical by reducing it to finding antiderivatives; 4) Connects instantaneous rate of change (derivative) with total accumulation (integral); 5) Philosophical importance: establishes that two seemingly different concepts—tangent slopes and areas under curves—are fundamentally related; 6) Enables applications throughout science: velocity/position relationships, work calculations, probability distributions; 7) Example: ∫₀² x²dx = [x³/3]₀² = 8/3 - 0 = 8/3."
+    },
+    {
+      "id": 24,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain eigenvalues and eigenvectors, and describe their significance in applications.",
+      "reference": "Eigenvalues and eigenvectors reveal fundamental properties of linear transformations. Key explanations: 1) Definition: For a square matrix A, a non-zero vector v is an eigenvector if Av = λv for some scalar λ (the eigenvalue). The transformation only scales v, not changes its direction; 2) Finding them: Solve det(A - λI) = 0 (characteristic polynomial) for eigenvalues, then solve (A - λI)v = 0 for eigenvectors; 3) Properties: An n×n matrix has at most n eigenvalues; eigenvalues can be real or complex; eigenvectors for distinct eigenvalues are linearly independent; 4) Diagonalization: If A has n linearly independent eigenvectors, A = PDP⁻¹ where D is diagonal with eigenvalues; 5) Applications: Principal Component Analysis (PCA) uses eigenvectors of covariance matrix for dimensionality reduction; Google's PageRank uses the dominant eigenvector; quantum mechanics (observables have eigenvalue spectra); stability analysis (eigenvalues determine system stability); 6) For symmetric matrices, eigenvalues are real and eigenvectors are orthogonal; 7) Matrix powers: Aⁿ = PDⁿP⁻¹, making computation efficient."
+    }
+  ]
+}

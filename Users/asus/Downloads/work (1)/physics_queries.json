@@ -1,0 +1,174 @@
+// FILE: physics_queries.json
+{
+  "subject": "Physics",
+  "queries": [
+    {
+      "id": 1,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is Newton's First Law of Motion?",
+      "reference": "Newton's First Law of Motion (Law of Inertia) states that an object at rest stays at rest and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced external force."
+    },
+    {
+      "id": 2,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the speed of light in a vacuum?",
+      "reference": "The speed of light in a vacuum is approximately 299,792,458 meters per second (about 3 × 10⁸ m/s), commonly denoted as c. This is a fundamental constant in physics and the maximum speed at which all matter and information can travel."
+    },
+    {
+      "id": 3,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the unit of electrical resistance, and what is Ohm's Law?",
+      "reference": "The unit of electrical resistance is the Ohm (Ω). Ohm's Law states that V = IR, where V is voltage (in volts), I is current (in amperes), and R is resistance (in ohms). This means the current through a conductor is directly proportional to the voltage and inversely proportional to the resistance."
+    },
+    {
+      "id": 4,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "A ball is thrown upward with an initial velocity of 20 m/s. How high does it rise before falling back down? (Assume g = 10 m/s²)",
+      "reference": "Using the kinematic equation v² = v₀² - 2gh at maximum height where v = 0: 0 = (20)² - 2(10)h; 0 = 400 - 20h; 20h = 400; h = 20 meters. The ball rises to a maximum height of 20 meters."
+    },
+    {
+      "id": 5,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "Explain the difference between kinetic energy and potential energy, and provide their formulas.",
+      "reference": "Kinetic energy is the energy of motion, calculated as KE = ½mv² where m is mass and v is velocity. Potential energy is stored energy due to position or configuration. Gravitational potential energy is PE = mgh where m is mass, g is gravitational acceleration, and h is height. Elastic potential energy is PE = ½kx² where k is spring constant and x is displacement. Energy can convert between these forms while total mechanical energy is conserved in absence of non-conservative forces."
+    },
+    {
+      "id": 6,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is the Doppler Effect and how does it apply to both sound and light?",
+      "reference": "The Doppler Effect is the change in frequency (or wavelength) of a wave in relation to an observer moving relative to the wave source. For sound: when a source approaches, frequency increases (higher pitch); when it recedes, frequency decreases (lower pitch). Formula: f' = f(v ± v_observer)/(v ∓ v_source). For light: approaching sources show blueshift (higher frequency); receding sources show redshift (lower frequency). This is used in radar guns, medical ultrasound, and measuring the expansion of the universe through galactic redshift."
+    },
+    {
+      "id": 7,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Derive the formula for the period of a simple pendulum using dimensional analysis and physics principles.",
+      "reference": "For a simple pendulum, the period T depends on length L, mass m, and gravitational acceleration g. Dimensional analysis: [T] = [L]^a [m]^b [g]^c. Since [g] = [L][T]⁻², we have: [T] = [L]^a [M]^b [L]^c [T]^(-2c). For dimensions to match: c must equal -1/2 for time, giving [T]¹ = [T]¹. Then a + c = 0, so a = 1/2. Mass doesn't affect period, so b = 0. Therefore T ∝ √(L/g). The complete derivation using torque and angular motion gives T = 2π√(L/g) for small oscillations."
+    },
+    {
+      "id": 8,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "A photon has a wavelength of 500 nm. Calculate its energy in electron volts (eV). Use h = 6.626 × 10⁻³⁴ J·s and c = 3 × 10⁸ m/s.",
+      "reference": "Using E = hc/λ: E = (6.626 × 10⁻³⁴ J·s)(3 × 10⁸ m/s)/(500 × 10⁻⁹ m) = (1.988 × 10⁻²⁵ J·m)/(5 × 10⁻⁷ m) = 3.976 × 10⁻¹⁹ J. Converting to eV (1 eV = 1.602 × 10⁻¹⁹ J): E = (3.976 × 10⁻¹⁹ J)/(1.602 × 10⁻¹⁹ J/eV) ≈ 2.48 eV. This is visible green light."
+    },
+    {
+      "id": 9,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Isaac Newton's three laws of motion, published in 1687 in his work Principia Mathematica, form the foundation of classical mechanics. The first law, also known as the law of inertia, states that an object will remain at rest or in uniform motion in a straight line unless acted upon by an external force. This law introduces the concept of inertia—the tendency of objects to resist changes in their state of motion. The second law quantifies force as the product of mass and acceleration (F = ma), explaining how the velocity of an object changes when subjected to an external force. The greater the mass, the more force is needed to achieve the same acceleration. The third law states that for every action, there is an equal and opposite reaction, meaning forces always occur in pairs. When you push against a wall, the wall pushes back with equal force. These laws explain everything from why passengers lurch forward when a car brakes to how rockets propel themselves through space by expelling gases.",
+      "reference": "Newton's three laws of motion, published in Principia Mathematica (1687), establish classical mechanics' foundation. The first law (inertia) states objects maintain their state of rest or uniform motion unless acted upon by external forces. The second law quantifies the relationship F = ma, showing how force produces acceleration inversely proportional to mass. The third law establishes that forces occur in equal and opposite pairs—every action has an equal reaction. These principles explain everyday phenomena from passengers lurching in braking vehicles to rocket propulsion through expelled gases."
+    },
+    {
+      "id": 10,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Waves are disturbances that transfer energy from one point to another without transferring matter. Waves are characterized by several properties: amplitude (maximum displacement from equilibrium), wavelength (distance between successive crests or troughs), frequency (number of complete oscillations per second, measured in Hertz), and period (time for one complete oscillation). The wave equation relates these: velocity equals frequency times wavelength (v = fλ). Waves can be classified as mechanical (requiring a medium, like sound or water waves) or electromagnetic (traveling through vacuum, like light). Waves can also be transverse (oscillation perpendicular to wave direction, like light) or longitudinal (oscillation parallel to wave direction, like sound). When waves meet, they undergo superposition—constructive interference when in phase increases amplitude, while destructive interference when out of phase decreases it. Waves can also reflect off boundaries, refract when entering different media, and diffract around obstacles.",
+      "reference": "Waves transfer energy without transferring matter, characterized by amplitude, wavelength, frequency, and period. The wave equation v = fλ relates velocity, frequency, and wavelength. Waves are classified as mechanical (requiring a medium, like sound) or electromagnetic (traveling through vacuum, like light), and as transverse (perpendicular oscillation) or longitudinal (parallel oscillation). Wave behaviors include superposition (constructive interference when in phase, destructive when out of phase), reflection off boundaries, refraction when entering different media, and diffraction around obstacles. These principles govern phenomena from musical instruments to fiber optic communications."
+    },
+    {
+      "id": 11,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Thermodynamics is the branch of physics dealing with heat, work, and energy transfer. The zeroth law establishes thermal equilibrium: if two systems are each in thermal equilibrium with a third, they are in equilibrium with each other, enabling temperature measurement. The first law is conservation of energy: the change in a system's internal energy equals heat added minus work done by the system (ΔU = Q - W). Energy cannot be created or destroyed, only transformed. The second law introduces entropy: in any spontaneous process, the total entropy of a closed system increases. Heat flows naturally from hot to cold, never the reverse without external work. This explains why perpetual motion machines are impossible. The third law states that as temperature approaches absolute zero, entropy approaches a constant minimum. These laws govern engines, refrigerators, chemical reactions, and even the ultimate fate of the universe.",
+      "reference": "Thermodynamics governs heat, work, and energy transfer through four fundamental laws. The zeroth law establishes thermal equilibrium and temperature measurement. The first law (ΔU = Q - W) expresses energy conservation—energy transforms but cannot be created or destroyed. The second law introduces entropy, stating it increases in spontaneous processes; heat naturally flows from hot to cold, explaining why perpetual motion machines are impossible. The third law establishes that entropy approaches a minimum as temperature approaches absolute zero. These principles govern engines, refrigerators, chemical reactions, and cosmic evolution."
+    },
+    {
+      "id": 12,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Electromagnetic radiation encompasses a broad spectrum of waves, all traveling at the speed of light in vacuum but differing in wavelength and frequency. The spectrum, from longest to shortest wavelength, includes: radio waves (used in broadcasting and communication), microwaves (cooking, radar, cellular networks), infrared radiation (thermal imaging, remote controls), visible light (the narrow band our eyes detect, from red to violet), ultraviolet radiation (from the sun, causes sunburn, used in sterilization), X-rays (medical imaging, penetrate soft tissue but absorbed by bones), and gamma rays (highest energy, produced by nuclear reactions and cosmic events). The energy of electromagnetic radiation is proportional to frequency (E = hf), so gamma rays carry the most energy and radio waves the least. All electromagnetic waves exhibit wave-particle duality—behaving as waves in phenomena like diffraction and interference, but as particles (photons) in interactions like the photoelectric effect. Maxwell's equations mathematically describe electromagnetic waves as oscillating electric and magnetic fields perpendicular to each other and to the direction of propagation.",
+      "reference": "Electromagnetic radiation spans a spectrum of waves traveling at light speed with varying wavelengths. From longest to shortest: radio waves (communication), microwaves (radar, cellular), infrared (thermal imaging), visible light (human vision, red to violet), ultraviolet (sunburn, sterilization), X-rays (medical imaging), and gamma rays (highest energy, nuclear processes). Energy relates to frequency via E = hf, making gamma rays most energetic. All electromagnetic waves demonstrate wave-particle duality—behaving as waves during diffraction and interference, but as photons in phenomena like the photoelectric effect. Maxwell's equations describe these waves as perpendicular oscillating electric and magnetic fields."
+    },
+    {
+      "id": 13,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Special relativity, proposed by Einstein in 1905, revolutionized our understanding of space, time, and motion. The theory rests on two postulates: the laws of physics are the same in all inertial reference frames, and the speed of light in vacuum is constant for all observers regardless of their motion or the motion of the light source. These seemingly simple assumptions lead to profound consequences. Time dilation means moving clocks run slower: t = γt₀ where γ = 1/√(1-v²/c²) is the Lorentz factor. Length contraction means moving objects are shorter in the direction of motion: L = L₀/γ. The relativity of simultaneity shows that events simultaneous in one frame may not be simultaneous in another. Mass-energy equivalence, expressed in the famous equation E = mc², reveals that mass and energy are interconvertible. A small amount of mass corresponds to enormous energy—the basis for nuclear power and weapons. These effects are negligible at everyday speeds but become significant as velocities approach the speed of light, affecting GPS satellites, particle accelerators, and our understanding of the universe.",
+      "reference": "Einstein's special relativity (1905) rests on two postulates: physical laws are identical in all inertial frames, and light speed is constant for all observers. These yield profound consequences: time dilation (moving clocks run slower: t = γt₀), length contraction (moving objects shorten: L = L₀/γ), and relativity of simultaneity (simultaneous events in one frame may not be in another). Mass-energy equivalence (E = mc²) reveals mass and energy are interconvertible, underpinning nuclear power. While negligible at everyday speeds, these effects become significant near light speed, affecting GPS satellites, particle accelerators, and cosmological understanding."
+    },
+    {
+      "id": 14,
+      "task": "summarize",
+      "difficulty": "medium",
+      "query": "Summarize the following passage in 80-120 words: Electric and magnetic fields are fundamentally interconnected phenomena, unified in Maxwell's equations. A stationary electric charge produces an electric field radiating outward (or inward for negative charges). When charges move, they create electric current, which generates a magnetic field circling the current. Faraday's law of induction reveals that a changing magnetic field induces an electric field, the principle behind electric generators and transformers. Maxwell added that a changing electric field also produces a magnetic field, even without current. Together, these relationships allow electromagnetic waves to propagate through space: oscillating electric fields create oscillating magnetic fields, which create oscillating electric fields, and so on. This self-sustaining wave travels at the speed of light—leading Maxwell to correctly conclude that light itself is an electromagnetic wave. Electromagnetic induction powers modern civilization through generators converting mechanical energy to electrical energy. Transformers use induction to change voltage levels for efficient power transmission. Electric motors reverse the process, converting electrical energy back to mechanical energy through magnetic interactions with current-carrying conductors.",
+      "reference": "Maxwell's equations unify electric and magnetic fields. Stationary charges produce electric fields; moving charges (current) generate magnetic fields. Faraday's law shows changing magnetic fields induce electric fields—enabling generators and transformers. Maxwell added that changing electric fields also produce magnetic fields. This interconnection enables electromagnetic wave propagation: oscillating electric fields create oscillating magnetic fields and vice versa, traveling at light speed—confirming light as electromagnetic radiation. Electromagnetic induction underpins modern civilization: generators convert mechanical to electrical energy, transformers adjust voltage for transmission, and motors reverse the process through magnetic interactions with current-carrying conductors."
+    },
+    {
+      "id": 15,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: Quantum mechanics describes the behavior of matter and energy at atomic and subatomic scales, where classical physics fails. Key principles include wave-particle duality: particles like electrons exhibit wave properties (demonstrated in double-slit experiments), while light waves exhibit particle properties (photons). Heisenberg's uncertainty principle states we cannot simultaneously know both position and momentum with arbitrary precision (ΔxΔp ≥ ℏ/2); this is a fundamental limit, not a measurement limitation. Particles exist in superposition—multiple states simultaneously—until measured, when the wave function collapses to a definite state. This probabilistic nature is described by Schrödinger's equation, whose solution gives the wave function, with its squared amplitude representing probability density. Quantum tunneling allows particles to pass through barriers classically forbidden by insufficient energy. Entanglement creates correlations between particles such that measuring one instantly determines the other's state, regardless of separation. These seemingly bizarre phenomena have been repeatedly verified experimentally. Quantum mechanics underlies semiconductor physics (enabling computers), lasers, MRI machines, and is driving development of quantum computers and quantum cryptography.",
+      "reference": "Quantum mechanics governs atomic and subatomic behavior where classical physics fails. Wave-particle duality shows particles exhibit wave properties and light exhibits particle properties. Heisenberg's uncertainty principle (ΔxΔp ≥ ℏ/2) fundamentally limits simultaneous knowledge of position and momentum. Particles exist in superposition until measured, when wave functions collapse to definite states. Schrödinger's equation describes this probabilistic behavior, with squared wave function amplitude representing probability density. Quantum tunneling enables particles to traverse classically forbidden barriers; entanglement creates instantaneous correlations between distant particles. These verified phenomena enable semiconductors, lasers, MRI, and emerging quantum computing and cryptography technologies."
+    },
+    {
+      "id": 16,
+      "task": "summarize",
+      "difficulty": "hard",
+      "query": "Summarize the following passage in 80-120 words: The Standard Model of particle physics classifies all known fundamental particles and describes three of the four fundamental forces through quantum field theory. Matter consists of fermions (half-integer spin), divided into quarks and leptons. Six quark flavors (up, down, charm, strange, top, bottom) combine in triplets to form hadrons like protons (up-up-down) and neutrons (up-down-down). Six leptons include the electron, muon, tau, and their associated neutrinos. Forces are mediated by gauge bosons (integer spin): photons mediate electromagnetism, W and Z bosons mediate the weak force responsible for radioactive decay, and gluons mediate the strong force binding quarks. The Higgs boson, discovered in 2012, is associated with the Higgs field that gives particles mass through the Higgs mechanism. Notably absent from the Standard Model is gravity, which general relativity describes geometrically but which resists quantum description. The hypothetical graviton would be spin-2. Other unresolved issues include dark matter, the matter-antimatter asymmetry, neutrino masses, and why there are exactly three generations of particles. These mysteries drive research in string theory, supersymmetry, and experiments at facilities like CERN.",
+      "reference": "The Standard Model classifies fundamental particles and describes three forces via quantum field theory. Matter consists of fermions: six quarks (combining as hadrons like protons and neutrons) and six leptons (including electrons and neutrinos). Gauge bosons mediate forces: photons (electromagnetism), W/Z bosons (weak force), and gluons (strong force). The Higgs boson (discovered 2012) relates to the mass-giving Higgs mechanism. Gravity remains absent—described by general relativity but resisting quantum formulation. Unresolved issues include dark matter, matter-antimatter asymmetry, neutrino masses, and why three particle generations exist, driving research in string theory and supersymmetry at facilities like CERN."
+    },
+    {
+      "id": 17,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain what causes the seasons on Earth.",
+      "reference": "Earth's seasons are caused by the 23.5° tilt of Earth's rotational axis relative to its orbital plane around the Sun. Key points: 1) As Earth orbits the Sun, the tilt causes different hemispheres to receive more direct sunlight at different times; 2) When the Northern Hemisphere tilts toward the Sun (around June), it experiences summer with longer days, more direct sunlight, and more concentrated solar energy; 3) Simultaneously, the Southern Hemisphere tilts away, experiencing winter; 4) The situation reverses around December; 5) Near the equator, seasons are less pronounced because sunlight remains relatively direct year-round; 6) Equinoxes (March, September) have equal day and night when neither hemisphere tilts toward the Sun; 7) Common misconception: seasons are NOT caused by Earth's distance from the Sun (Earth is actually closest in January)."
+    },
+    {
+      "id": 18,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain what gravity is and how it affects objects on Earth.",
+      "reference": "Gravity is a fundamental force of attraction between objects with mass. Key explanations: 1) Newton's Law of Universal Gravitation: F = Gm₁m₂/r², where G is the gravitational constant, m₁ and m₂ are masses, and r is the distance between centers; 2) On Earth, gravitational acceleration is approximately g = 9.8 m/s², meaning falling objects accelerate at this rate (ignoring air resistance); 3) Weight is the gravitational force on an object: W = mg; 4) Gravity keeps us on Earth's surface, holds the atmosphere, causes tides (through Moon's gravity), and keeps the Moon orbiting Earth and Earth orbiting the Sun; 5) All objects fall at the same rate regardless of mass (Galileo's insight); 6) Einstein's general relativity reinterprets gravity as curvature of spacetime caused by mass, not a force—objects follow curved paths through warped spacetime."
+    },
+    {
+      "id": 19,
+      "task": "explain",
+      "difficulty": "easy",
+      "query": "Explain how a simple electric circuit works.",
+      "reference": "An electric circuit is a closed loop allowing electric current to flow. Key explanations: 1) Components: a power source (battery) provides voltage (electrical potential difference), conductors (wires) carry current, and loads (bulbs, resistors) use electrical energy; 2) Voltage is like pressure pushing electrons through the circuit; 3) Current (measured in amperes) is the flow rate of electric charge; 4) Resistance (measured in ohms) opposes current flow; 5) Ohm's Law: V = IR relates these quantities; 6) Circuit must be complete (closed) for current to flow; 7) In series circuits, current passes through each component sequentially (same current, voltages add); 8) In parallel circuits, current splits between branches (same voltage, currents add); 9) Switches open/close the circuit; 10) Energy is transferred from source to load, converted to heat, light, or other forms."
+    },
+    {
+      "id": 20,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the photoelectric effect and why it was significant for the development of quantum theory.",
+      "reference": "The photoelectric effect occurs when light striking a metal surface ejects electrons. Key explanations: 1) Classical prediction: brighter light should always eject electrons with more energy, regardless of color; 2) Experimental results contradicted this: below a threshold frequency, no electrons were ejected regardless of intensity; above threshold, electron energy depended on frequency, not intensity; 3) Einstein's 1905 explanation: light consists of quantized packets (photons) with energy E = hf; 4) Each photon can eject one electron if its energy exceeds the work function (φ); 5) Maximum kinetic energy of ejected electrons: KE_max = hf - φ; 6) Significance: demonstrated light has particle properties, introducing wave-particle duality; provided evidence for quantization of energy; helped establish quantum mechanics; earned Einstein the Nobel Prize (1921); contradicted classical physics' continuous energy model."
+    },
+    {
+      "id": 21,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain the concept of momentum and its conservation in collisions.",
+      "reference": "Momentum is a vector quantity measuring motion, defined as p = mv (mass times velocity). Key explanations: 1) Units are kg·m/s; direction matches velocity direction; 2) Newton's Second Law in terms of momentum: F = dp/dt (force equals rate of change of momentum); 3) Law of Conservation of Momentum: in a closed system with no external forces, total momentum remains constant; 4) For collisions, m₁v₁ᵢ + m₂v₂ᵢ = m₁v₁f + m₂v₂f; 5) Elastic collisions conserve both momentum and kinetic energy (idealized); 6) Inelastic collisions conserve momentum but not kinetic energy (some converted to heat, sound); 7) Perfectly inelastic collisions: objects stick together, maximum kinetic energy loss; 8) Applications: car crashes (longer collision time reduces force), rocket propulsion (momentum of expelled gas equals momentum gained by rocket), sports (follow-through increases momentum transfer)."
+    },
+    {
+      "id": 22,
+      "task": "explain",
+      "difficulty": "medium",
+      "query": "Explain nuclear fission and fusion, and how they release energy.",
+      "reference": "Nuclear fission and fusion release energy by converting mass to energy according to E = mc². Key explanations: 1) Binding energy: nucleons in a nucleus have less mass than separate nucleons; this mass deficit represents binding energy; 2) Fission splits heavy nuclei (like uranium-235) into lighter fragments; heavy nuclei have lower binding energy per nucleon, so fragments are more tightly bound, releasing the difference; 3) Chain reactions: fission releases neutrons that trigger more fissions; critical mass needed for sustained reaction; 4) Fusion combines light nuclei (hydrogen isotopes) into heavier nuclei (helium); light nuclei have lower binding energy per nucleon; 5) Both processes move toward iron-56, which has maximum binding energy per nucleon; 6) Fission powers nuclear reactors and atomic bombs; 7) Fusion powers the Sun and hydrogen bombs; fusion for power generation remains challenging due to extreme temperature/pressure requirements for plasma confinement."
+    },
+    {
+      "id": 23,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain Schrödinger's equation and its role in quantum mechanics.",
+      "reference": "Schrödinger's equation is the fundamental equation of quantum mechanics, describing how quantum states evolve. Key explanations: 1) Time-dependent form: iℏ∂Ψ/∂t = ĤΨ, where Ψ is the wave function, ℏ is reduced Planck's constant, and Ĥ is the Hamiltonian operator; 2) Time-independent form for stationary states: ĤΨ = EΨ (eigenvalue equation); 3) The wave function Ψ(x,t) contains all measurable information about a quantum system; 4) Physical interpretation: |Ψ|² gives probability density of finding particle at position x; 5) Solutions must be normalized: ∫|Ψ|²dx = 1; 6) The equation is deterministic—it predicts probability evolution precisely; randomness enters only upon measurement; 7) Applications: explains atomic orbitals, quantum tunneling, energy quantization; 8) Boundary conditions determine allowed energy levels (quantization); 9) For hydrogen atom, solutions give familiar orbital shapes (s, p, d, f); 10) The equation cannot be derived from more fundamental principles—it's a postulate validated by experimental confirmation."
+    },
+    {
+      "id": 24,
+      "task": "explain",
+      "difficulty": "hard",
+      "query": "Explain the concept of entropy and the second law of thermodynamics.",
+      "reference": "Entropy measures disorder or the number of microscopic configurations corresponding to a macroscopic state. Key explanations: 1) Boltzmann's formula: S = k_B ln(Ω), where Ω is the number of microstates; 2) Second Law: total entropy of an isolated system never decreases; it increases or stays constant; 3) Clausius form: heat cannot spontaneously flow from cold to hot; 4) Statistical interpretation: systems evolve toward more probable (higher entropy) states because there are vastly more disordered microstates than ordered ones; 5) ΔS = Q/T for reversible processes; irreversible processes create additional entropy; 6) Explains arrow of time—why processes are irreversible; 7) Heat engines have maximum efficiency: η = 1 - T_cold/T_hot (Carnot limit); 8) Free energy (G = H - TS) determines spontaneity at constant T and P; 9) Local entropy can decrease (life, refrigerators) only by increasing entropy elsewhere more; 10) Ultimate consequence: heat death of universe—maximum entropy state with no available energy for work."
+    }
+  ]
+}

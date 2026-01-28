@@ -1,0 +1,80 @@
+// FILE: biology_queries.json
+{
+  "subject": "Biology",
+  "queries": [
+    {
+      "id": 1,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the powerhouse of the cell and what is its main function?",
+      "reference": "The mitochondrion (plural: mitochondria) is often called the powerhouse of the cell. Its main function is cellular respiration—converting glucose and oxygen into ATP (adenosine triphosphate), the cell's energy currency. The process involves the Krebs cycle and oxidative phosphorylation in the inner mitochondrial membrane."
+    },
+    {
+      "id": 2,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What are the four nitrogenous bases found in DNA?",
+      "reference": "The four nitrogenous bases in DNA are Adenine (A), Thymine (T), Guanine (G), and Cytosine (C). Adenine pairs with Thymine (A-T) using two hydrogen bonds, and Guanine pairs with Cytosine (G-C) using three hydrogen bonds. This complementary base pairing is essential for DNA replication and transcription."
+    },
+    {
+      "id": 3,
+      "task": "qa",
+      "difficulty": "easy",
+      "query": "What is the difference between prokaryotic and eukaryotic cells?",
+      "reference": "Prokaryotic cells (bacteria, archaea) lack a membrane-bound nucleus; their DNA is in a nucleoid region. They have no membrane-bound organelles, are generally smaller (1-10 μm), and have circular DNA. Eukaryotic cells (plants, animals, fungi, protists) have a true nucleus with nuclear membrane, membrane-bound organelles (mitochondria, ER, Golgi), are larger (10-100 μm), and have linear DNA with histones."
+    },
+    {
+      "id": 4,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "Explain the process of transcription and its main stages.",
+      "reference": "Transcription is the process of synthesizing RNA from a DNA template. Stages: 1) Initiation: RNA polymerase binds to the promoter region of a gene; transcription factors help position the enzyme; 2) Elongation: RNA polymerase unwinds DNA and synthesizes mRNA in the 5' to 3' direction, using the template strand and adding complementary nucleotides (U instead of T); 3) Termination: RNA polymerase reaches a terminator sequence, releases the mRNA, and detaches from DNA. In eukaryotes, the pre-mRNA undergoes processing: 5' cap addition, 3' poly-A tail addition, and splicing to remove introns."
+    },
+    {
+      "id": 5,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is the difference between mitosis and meiosis?",
+      "reference": "Mitosis produces two genetically identical diploid daughter cells for growth and repair. It involves one division cycle with stages: prophase, metaphase, anaphase, telophase. Meiosis produces four genetically unique haploid gametes for sexual reproduction. It involves two division cycles (meiosis I and II). Key differences: meiosis has crossing over (prophase I) and independent assortment, creating genetic variation; meiosis separates homologous pairs (meiosis I) then sister chromatids (meiosis II); mitosis maintains chromosome number while meiosis halves it."
+    },
+    {
+      "id": 6,
+      "task": "qa",
+      "difficulty": "medium",
+      "query": "What is homeostasis and provide an example of how the human body maintains it?",
+      "reference": "Homeostasis is the maintenance of a stable internal environment despite external changes. It involves negative feedback loops. Example—body temperature regulation: When body temperature rises, thermoreceptors detect the change; the hypothalamus (control center) triggers responses including vasodilation (blood vessels dilate to release heat), sweating (evaporative cooling), and behavioral changes. When temperature falls, responses include vasoconstriction, shivering (muscle contractions generate heat), and reduced sweating. This maintains temperature near 37°C. Other examples include blood glucose regulation (insulin/glucagon), blood pH, and water balance."
+    },
+    {
+      "id": 7,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Explain the process of oxidative phosphorylation and how it produces ATP.",
+      "reference": "Oxidative phosphorylation occurs in the inner mitochondrial membrane and produces most cellular ATP. Process: 1) Electron transport chain (ETC): NADH and FADH₂ (from glycolysis and Krebs cycle) donate electrons to protein complexes (I-IV); electrons pass through carriers, releasing energy; 2) Chemiosmosis: Released energy pumps H⁺ ions from matrix to intermembrane space, creating a proton gradient (proton-motive force); 3) ATP synthesis: H⁺ flows back through ATP synthase (Complex V) down the gradient, driving rotation of the enzyme and phosphorylating ADP to ATP; 4) Oxygen is the final electron acceptor, forming water (2H⁺ + 2e⁻ + ½O₂ → H₂O); 5) Yields approximately 26-28 ATP per glucose molecule."
+    },
+    {
+      "id": 8,
+      "task": "qa",
+      "difficulty": "hard",
+      "query": "Explain how CRISPR-Cas9 gene editing works.",
+      "reference": "CRISPR-Cas9 is a precise gene-editing tool derived from bacterial immune systems. Mechanism: 1) Guide RNA (gRNA) is designed with ~20 nucleotides complementary to the target DNA sequence; 2) The gRNA forms a complex with Cas9 endonuclease protein; 3) The complex scans DNA for PAM sequences (NGG for SpCas9); 4) When gRNA matches adjacent target DNA, Cas9 unwinds and cleaves both DNA strands, creating a double-strand break; 5) Cell repair mechanisms are triggered: NHEJ (non-homologous end joining) causes insertions/deletions, disrupting genes; HDR (homology-directed repair) allows precise insertions if a template is provided; 6) Applications include gene knockout, gene correction, gene insertion, epigenetic modification, and gene regulation (using dCas9)."
+    },
+    {
+      "id": 9,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. This process occurs primarily in chloroplasts, which contain the green pigment chlorophyll that captures light energy. Photosynthesis consists of two main stages. The light-dependent reactions take place in the thylakoid membranes, where light energy splits water molecules, releasing oxygen as a byproduct and generating ATP and NADPH. The light-independent reactions (Calvin cycle) occur in the stroma, where ATP and NADPH power the conversion of carbon dioxide into glucose. The overall equation is 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂. Photosynthesis is fundamental to life on Earth, producing oxygen for aerobic organisms and forming the base of most food chains. Factors affecting photosynthesis include light intensity, carbon dioxide concentration, and temperature.",
+      "reference": "Photosynthesis converts light energy into chemical energy (glucose) in plants, algae, and some bacteria. Occurring in chloroplasts, the process has two stages: light-dependent reactions in thylakoid membranes split water, release oxygen, and generate ATP and NADPH; the Calvin cycle in the stroma uses these products to convert CO₂ into glucose. The overall equation: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂. Photosynthesis is essential for life, producing oxygen for aerobic organisms and forming the base of food chains. Light intensity, CO₂ concentration, and temperature influence the rate."
+    },
+    {
+      "id": 10,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: The cell membrane, also called the plasma membrane, is a selectively permeable barrier that surrounds all cells. Composed primarily of a phospholipid bilayer, it contains hydrophilic (water-loving) phosphate heads facing outward and hydrophobic (water-fearing) fatty acid tails facing inward. This arrangement creates a fluid mosaic structure where proteins float within or across the membrane. Integral proteins span the entire membrane and often function as channels or transporters, while peripheral proteins attach to the membrane's surface and play roles in signaling and maintaining cell shape. The membrane also contains cholesterol, which affects fluidity, and carbohydrates attached to proteins or lipids (glycoproteins and glycolipids) that function in cell recognition. Transport across the membrane occurs through passive processes (diffusion, osmosis, facilitated diffusion) requiring no energy, and active processes (active transport, endocytosis, exocytosis) requiring ATP.",
+      "reference": "The cell membrane is a selectively permeable phospholipid bilayer surrounding all cells. Hydrophilic phosphate heads face outward while hydrophobic fatty acid tails face inward, creating a fluid mosaic structure. Integral proteins span the membrane as channels or transporters; peripheral proteins on the surface aid signaling and structure. Cholesterol regulates fluidity, while glycoproteins and glycolipids enable cell recognition. Transport mechanisms include passive processes (diffusion, osmosis, facilitated diffusion) requiring no energy, and active processes (active transport, endocytosis, exocytosis) requiring ATP."
+    },
+    {
+      "id": 11,
+      "task": "summarize",
+      "difficulty": "easy",
+      "query": "Summarize the following passage in 80-120 words: The human immune system provides defense against pathogens through multiple layers of protection. The innate immune system offers immediate, non-specific defense through physical barriers (skin, mucous membranes), chemical barriers (stomach acid, antimicrobial proteins), and cellular responses (phagocytes like neutrophils and macrophages that engulf pathogens, natural killer cells that destroy infected cells, and inflammation that recruits immune cells to infection sites). The adaptive immune system provides specific, targeted responses that develop after exposure to particular pathogens. B lymphocytes produce antibodies that neutralize specific antigens, while T lymphocytes include helper T cells that coordinate immune responses and cytotoxic T cells that destroy infected cells. Importantly, the adaptive immune system has memory—memory B and T cells allow faster, stronger responses upon re-exposure to the same pathogen, forming the basis for vaccination.",
+      "reference": "The human immune system defends against pathogens through innate and adaptive responses. The innate system provides immediate, non
