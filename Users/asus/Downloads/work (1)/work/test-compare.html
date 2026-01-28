@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Educational AI Testing Platform</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+        <style>
+            :root {
+                --primary: #6366f1;
+                --primary-dark: #4f46e5;
+                --primary-light: #a5b4fc;
+                --secondary: #10b981;
+                --secondary-dark: #059669;
+                --accent: #f59e0b;
+                --danger: #ef4444;
+                --warning: #f59e0b;
+                --info: #3b82f6;
+                --bg-dark: #0f172a;
+                --bg-medium: #1e293b;
+                --bg-light: #f8fafc;
+                --bg-card: #ffffff;
+                --text-primary: #1e293b;
+                --text-secondary: #64748b;
+                --text-light: #94a3b8;
+                --border: #e2e8f0;
+                --border-dark: #334155;
+                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                --radius-sm: 8px;
+                --radius: 12px;
+                --radius-lg: 16px;
+                --radius-xl: 24px;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a2e 50%, var(--bg-dark) 100%);
+                min-height: 100vh;
+                color: var(--text-primary);
+                line-height: 1.6;
+            }
+
+            .app-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 24px;
+            }
+
+            .header {
+                text-align: center;
+                padding: 48px 24px;
+                margin-bottom: 32px;
+            }
+
+            .header-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(99, 102, 241, 0.2);
+                color: var(--primary-light);
+                padding: 8px 16px;
+                border-radius: 50px;
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                border: 1px solid rgba(99, 102, 241, 0.3);
+            }
+
+            .header h1 {
+                font-size: 3rem;
+                font-weight: 800;
+                background: linear-gradient(135deg, #fff 0%, var(--primary-light) 50%, var(--secondary) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 16px;
+                letter-spacing: -1px;
+            }
+
+            .header p {
+                font-size: 1.125rem;
+                color: var(--text-light);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .tabs-container {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 32px;
+            }
+
+            .tabs-row {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .tab-btn {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 28px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                border-radius: 50px;
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 15px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .tab-btn:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.2);
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .tab-btn.active {
+                background: white;
+                border-color: white;
+                color: var(--primary-dark);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .tab-icon {
+                font-size: 20px;
+            }
+
+            .main-card {
+                background: var(--bg-card);
+                border-radius: var(--radius-xl);
+                box-shadow: var(--shadow-xl);
+                overflow: hidden;
+                margin-bottom: 32px;
+            }
+
+            .progress-steps {
+                display: flex;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+                padding: 24px 32px;
+                overflow-x: auto;
+            }
+
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 14px;
+                font-weight: 500;
+                white-space: nowrap;
+                transition: all 0.3s ease;
+            }
+
+            .step.active {
+                color: white;
+            }
+
+            .step.completed {
+                color: #a5f3fc;
+            }
+
+            .step-number {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .step.active .step-number {
+                background: white;
+                color: var(--primary);
+            }
+
+            .step.completed .step-number {
+                background: var(--secondary);
+                color: white;
+            }
+
+            .step.completed .step-number::after {
+                content: '✓';
+            }
+
+            .step.completed .step-number span {
+                display: none;
+            }
+
+            .step-divider {
+                width: 60px;
+                height: 2px;
+                background: rgba(255, 255, 255, 0.2);
+                margin: 0 16px;
+                transition: all 0.3s ease;
+            }
+
+            .step-divider.completed {
+                background: var(--secondary);
+            }
+
+            .form-content {
+                padding: 40px;
+            }
+
+            .form-section {
+                margin-bottom: 36px;
+                animation: fadeInUp 0.5s ease;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin-bottom: 20px;
+            }
+
+            .section-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: var(--radius);
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                flex-shrink: 0;
+            }
+
+            .section-info h3 {
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 4px;
+            }
+
+            .section-info p {
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .form-label {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-secondary);
+                margin-bottom: 8px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .form-select,
+            .form-textarea,
+            .form-input {
+                padding: 14px 16px;
+                border: 2px solid var(--border);
+                border-radius: var(--radius);
+                font-size: 15px;
+                font-family: inherit;
+                transition: all 0.3s ease;
+                background: var(--bg-light);
+                color: var(--text-primary);
+            }
+
+            .form-select:hover,
+            .form-textarea:hover,
+            .form-input:hover {
+                border-color: var(--primary-light);
+            }
+
+            .form-select:focus,
+            .form-textarea:focus,
+            .form-input:focus {
+                outline: none;
+                border-color: var(--primary);
+                background: white;
+                box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            }
+
+            .form-textarea {
+                min-height: 140px;
+                resize: vertical;
+                line-height: 1.6;
+            }
+
+            .char-counter {
+                text-align: right;
+                font-size: 12px;
+                color: var(--text-light);
+                margin-top: 8px;
+            }
+
+            .file-upload-zone {
+                border: 2px dashed var(--border);
+                border-radius: var(--radius-lg);
+                padding: 48px 24px;
+                text-align: center;
+                background: var(--bg-light);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .file-upload-zone:hover {
+                border-color: var(--primary);
+                background: rgba(99, 102, 241, 0.05);
+            }
+
+            .file-upload-zone.dragover {
+                border-color: var(--primary);
+                background: rgba(99, 102, 241, 0.1);
+                transform: scale(1.02);
+            }
+
+            .upload-icon {
+                font-size: 56px;
+                margin-bottom: 16px;
+                opacity: 0.8;
+            }
+
+            .upload-title {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 8px;
+            }
+
+            .upload-subtitle {
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+
+            .file-input {
+                display: none;
+            }
+
+            .file-preview {
+                display: none;
+                align-items: center;
+                gap: 16px;
+                padding: 20px;
+                background: white;
+                border: 2px solid var(--border);
+                border-radius: var(--radius);
+                margin-top: 16px;
+            }
+
+            .file-preview.visible {
+                display: flex;
+            }
+
+            .file-preview-icon {
+                font-size: 40px;
+            }
+
+            .file-preview-info {
+                flex: 1;
+            }
+
+            .file-preview-name {
+                font-weight: 600;
+                color: var(--text-primary);
+                margin-bottom: 4px;
+            }
+
+            .file-preview-size {
+                font-size: 13px;
+                color: var(--text-secondary);
+            }
+
+            .file-remove-btn {
+                padding: 8px 12px;
+                background: none;
+                border: none;
+                color: var(--danger);
+                font-size: 20px;
+                cursor: pointer;
+                border-radius: var(--radius-sm);
+                transition: all 0.3s ease;
+            }
+
+            .file-remove-btn:hover {
+                background: rgba(239, 68, 68, 0.1);
+            }
+
+            .models-section {
+                background: var(--bg-light);
+                border-radius: var(--radius-lg);
+                padding: 24px;
+                margin-top: 24px;
+            }
+
+            .models-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .models-title {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--text-primary);
+            }
+
+            .models-count {
+                background: var(--primary);
+                color: white;
+                padding: 6px 14px;
+                border-radius: 50px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .models-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 16px;
+            }
+
+            .model-card {
+                background: white;
+                border: 2px solid var(--border);
+                border-radius: var(--radius);
+                padding: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .model-card:hover {
+                border-color: var(--primary-light);
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .model-card.selected {
+                border-color: var(--primary);
+                background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            }
+
+            .model-card.selected::after {
+                content: '✓';
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                width: 28px;
+                height: 28px;
+                background: var(--primary);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            .model-card-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 14px;
+                margin-bottom: 14px;
+            }
+
+            .model-icon {
+                font-size: 36px;
+                line-height: 1;
+            }
+
+            .model-info {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .model-name {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 4px;
+            }
+
+            .model-provider {
+                font-size: 13px;
+                color: var(--text-secondary);
+            }
+
+            .model-badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-bottom: 12px;
+            }
+
+            .badge {
+                padding: 4px 10px;
+                border-radius: 6px;
+                font-size: 11px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            .badge-free {
+                background: #dcfce7;
+                color: #166534;
+            }
+
+            .badge-cheap {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            .badge-fast {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+
+            .badge-quality {
+                background: #f3e8ff;
+                color: #7c3aed;
+            }
+
+            .model-description {
+                font-size: 13px;
+                color: var(--text-secondary);
+                line-height: 1.5;
+                padding-top: 12px;
+                border-top: 1px solid var(--border);
+            }
+
+            .submit-section {
+                padding: 24px 40px;
+                background: var(--bg-light);
+                border-top: 1px solid var(--border);
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 18px 32px;
+                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                color: white;
+                border: none;
+                border-radius: var(--radius);
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+            }
+
+            .submit-btn:hover:not(:disabled) {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            }
+
+            .submit-btn:disabled {
+                background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%);
+                cursor: not-allowed;
+                box-shadow: none;
+                transform: none;
+            }
+
+            .submit-btn-icon {
+                font-size: 20px;
+            }
+
+            .loading-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(15, 23, 42, 0.95);
+                z-index: 1000;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .loading-overlay.active {
+                display: flex;
+            }
+
+            .loading-spinner {
+                width: 64px;
+                height: 64px;
+                border: 4px solid rgba(255, 255, 255, 0.1);
+                border-top-color: var(--primary);
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .loading-text {
+                color: white;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .loading-subtext {
+                color: var(--text-light);
+                font-size: 14px;
+            }
+
+            .loading-progress {
+                width: 320px;
+                height: 6px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+                overflow: hidden;
+            }
+
+            .loading-progress-bar {
+                height: 100%;
+                background: linear-gradient(90deg, var(--primary), var(--secondary));
+                width: 0%;
+                transition: width 0.3s ease;
+                animation: progressPulse 2s ease-in-out infinite;
+            }
+
+            @keyframes progressPulse {
+
+                0%,
+                100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.7;
+                }
+            }
+
+            .results-section {
+                display: none;
+                margin-top: 32px;
+                animation: fadeInUp 0.5s ease;
+            }
+
+            .results-section.visible {
+                display: block;
+            }
+
+            .results-header {
+                background: white;
+                border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+                padding: 24px 32px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .results-title {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--text-primary);
+            }
+
+            .results-actions {
+                display: flex;
+                gap: 12px;
+            }
+
+            .action-btn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 20px;
+                border-radius: var(--radius);
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .action-btn-primary {
+                background: var(--primary);
+                color: white;
+                border: none;
+            }
+
+            .action-btn-primary:hover {
+                background: var(--primary-dark);
+            }
+
+            .action-btn-secondary {
+                background: white;
+                color: var(--text-primary);
+                border: 2px solid var(--border);
+            }
+
+            .action-btn-secondary:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+            }
+
+            .results-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+                gap: 20px;
+                padding: 24px;
+                background: var(--bg-light);
+                border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            }
+
+            .result-card {
+                background: white;
+                border-radius: var(--radius);
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .result-card:hover {
+                box-shadow: var(--shadow-lg);
+            }
+
+            .result-card.winner {
+                border-color: var(--secondary);
+            }
+
+            .result-card.winner .result-card-header {
+                background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            }
+
+            .winner-badge {
+                display: none;
+                align-items: center;
+                gap: 6px;
+                background: var(--secondary);
+                color: white;
+                padding: 8px 16px;
+                font-size: 13px;
+                font-weight: 700;
+            }
+
+            .result-card.winner .winner-badge {
+                display: flex;
+            }
+
+            .result-card-header {
+                padding: 20px;
+                background: var(--bg-light);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .result-model-info {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 16px;
+            }
+
+            .result-model-icon {
+                font-size: 32px;
+            }
+
+            .result-model-details h4 {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 2px;
+            }
+
+            .result-model-details p {
+                font-size: 13px;
+                color: var(--text-secondary);
+            }
+
+            .result-metrics {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .result-metric {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 13px;
+            }
+
+            .metric-icon {
+                font-size: 16px;
+            }
+
+            .metric-value {
+                font-weight: 700;
+                color: var(--text-primary);
+            }
+
+            .metric-label {
+                color: var(--text-secondary);
+            }
+
+            .result-content {
+                padding: 20px;
+                max-height: 400px;
+                overflow-y: auto;
+            }
+
+            .result-text {
+                font-size: 14px;
+                line-height: 1.8;
+                color: var(--text-primary);
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            .result-error {
+                color: var(--danger);
+                background: #fef2f2;
+                padding: 16px;
+                border-radius: var(--radius-sm);
+                border-left: 4px solid var(--danger);
+            }
+
+            .result-card-footer {
+                padding: 16px 20px;
+                background: var(--bg-light);
+                border-top: 1px solid var(--border);
+                display: flex;
+                gap: 12px;
+            }
+
+            .copy-btn {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 8px 16px;
+                background: white;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text-primary);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .copy-btn:hover {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+            }
+
+            .copy-btn.copied {
+                background: var(--secondary);
+                color: white;
+                border-color: var(--secondary);
+            }
+
+            .stats-section {
+                display: none;
+                background: white;
+                border-radius: var(--radius-lg);
+                padding: 24px;
+                margin-top: 24px;
+                box-shadow: var(--shadow);
+            }
+
+            .stats-section.visible {
+                display: block;
+            }
+
+            .stats-title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 18px;
+                font-weight: 700;
+                color: var(--text-primary);
+                margin-bottom: 20px;
+            }
+
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 16px;
+            }
+
+            .stat-card {
+                background: var(--bg-light);
+                padding: 20px;
+                border-radius: var(--radius);
+                text-align: center;
+            }
+
+            .stat-value {
+                font-size: 32px;
+                font-weight: 800;
+                color: var(--primary);
+                margin-bottom: 4px;
+            }
+
+            .stat-label {
+                font-size: 13px;
+                color: var(--text-secondary);
+            }
+
+            .error-message {
+                display: none;
+                background: #fef2f2;
+                border: 1px solid #fecaca;
+                border-left: 4px solid var(--danger);
+                border-radius: var(--radius);
+                padding: 20px;
+                margin-top: 24px;
+            }
+
+            .error-message.visible {
+                display: block;
+                animation: shake 0.5s ease;
+            }
+
+            @keyframes shake {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                25% {
+                    transform: translateX(-8px);
+                }
+
+                75% {
+                    transform: translateX(8px);
+                }
+            }
+
+            .error-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 8px;
+            }
+
+            .error-icon {
+                font-size: 24px;
+            }
+
+            .error-title {
+                font-size: 16px;
+                font-weight: 700;
+                color: var(--danger);
+            }
+
+            .error-text {
+                font-size: 14px;
+                color: #991b1b;
+            }
+
+            .toast {
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                background: var(--text-primary);
+                color: white;
+                padding: 16px 24px;
+                border-radius: var(--radius);
+                font-size: 14px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                box-shadow: var(--shadow-xl);
+                transform: translateY(100px);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 1001;
+            }
+
+            .toast.show {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .toast.success {
+                background: var(--secondary);
+            }
+
+            .toast.error {
+                background: var(--danger);
+            }
+
+            @media (max-width: 768px) {
+                .app-container {
+                    padding: 16px;
+                }
+
+                .header h1 {
+                    font-size: 2rem;
+                }
+
+                .header p {
+                    font-size: 1rem;
+                }
+
+                .form-content {
+                    padding: 24px;
+                }
+
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+
+                .models-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .results-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .progress-steps {
+                    padding: 16px;
+                }
+
+                .step span:not(.step-number) {
+                    display: none;
+                }
+
+                .step-divider {
+                    width: 24px;
+                    margin: 0 8px;
+                }
+
+                .results-header {
+                    flex-direction: column;
+                    gap: 16px;
+                    text-align: center;
+                }
+
+                .results-actions {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: var(--bg-light);
+                border-radius: 4px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--border);
+                border-radius: 4px;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--text-light);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="app-container">
+            <header class="header">
+                <div class="header-badge">
+                    <span>🧪</span>
+                    <span>POC Testing Platform</span>
+                </div>
+                <h1>Educational AI Testing</h1>
+                <p>Compare LLMs for Q&A, Summarization, and Explanations — or test OCR configurations for document
+                    processing</p>
+            </header>
+
+            <div class="tabs-container">
+                <div class="tabs-row">
+                    <button class="tab-btn active" onclick="switchAppMode('llm')" data-mode="llm">
+                        <span class="tab-icon">🤖</span>
+                        <span>LLM Testing</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchAppMode('ocr')" data-mode="ocr">
+                        <span class="tab-icon">📄</span>
+                        <span>OCR Testing</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchAppMode('evaluation')" data-mode="evaluation">
+                        <span class="tab-icon">📊</span>
+                        <span>Evaluation</span>
+                    </button>
+                </div>
+                <div class="tabs-row">
+                    <button class="tab-btn active" onclick="switchComparisonMode('single')" data-comparison="single">
+                        <span class="tab-icon">1️⃣</span>
+                        <span>Single Model</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchComparisonMode('compare')" data-comparison="compare">
+                        <span class="tab-icon">⚖️</span>
+                        <span>Compare Models</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="main-card">
+                <div class="progress-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number"><span>1</span></div>
+                        <span id="stepLabel1">Configure</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step" data-step="2">
+                        <div class="step-number"><span>2</span></div>
+                        <span id="stepLabel2">Input</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step" data-step="3">
+                        <div class="step-number"><span>3</span></div>
+                        <span>Select Model</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step" data-step="4">
+                        <div class="step-number"><span>4</span></div>
+                        <span>Results</span>
+                    </div>
+                </div>
+
+                <div class="form-content">
+                    <div id="llmSection">
+                        <div class="form-section">
+                            <div class="section-header">
+                                <div class="section-icon">🛠️</div>
+                                <div class="section-info">
+                                    <h3>Task Configuration</h3>
+                                    <p>Select the type of task and subject area</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Task Type</label>
+                                    <select class="form-select" id="taskType" onchange="handleTaskTypeChange()">
+                                        <option value="qa">❓ Q&A - Question Answering</option>
+                                        <option value="summarize">📝 Summarize - Text Summarization</option>
+                                        <option value="explain">💡 Explain - Concept Explanation</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Subject Area</label>
+                                    <select class="form-select" id="subject">
+                                        <option value="">📚 General</option>
+                                        <option value="mathematics">🔢 Mathematics</option>
+                                        <option value="physics">⚛️ Physics</option>
+                                        <option value="chemistry">🧪 Chemistry</option>
+                                        <option value="biology">🧬 Biology</option>
+                                        <option value="computer_science">💻 Computer Science</option>
+                                        <option value="programming">👨‍💻 Programming</option>
+                                        <option value="history">📜 History</option>
+                                        <option value="geography">🌍 Geography</option>
+                                        <option value="literature">📕 Literature</option>
+                                        <option value="economics">💰 Economics</option>
+                                        <option value="philosophy">🤔 Philosophy</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="section-header">
+                                <div class="section-icon">✏️</div>
+                                <div class="section-info">
+                                    <h3>Your Query</h3>
+                                    <p id="queryHint">Enter your question to get an answer</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-textarea" id="queryText" placeholder="Type your question here..."
+                                    maxlength="4000" oninput="handleQueryInput()"></textarea>
+                                <div class="char-counter">
+                                    <span id="charCount">0</span> / 4000 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="ocrSection" style="display: none;">
+                        <div class="form-section">
+                            <div class="section-header">
+                                <div class="section-icon">📤</div>
+                                <div class="section-info">
+                                    <h3>Upload Document</h3>
+                                    <p>Upload an image for text extraction</p>
+                                </div>
+                            </div>
+
+                            <div class="file-upload-zone" id="dropZone"
+                                onclick="document.getElementById('fileInput').click()">
+                                <div class="upload-icon">📁</div>
+                                <div class="upload-title">Drag & drop your image here</div>
+                                <div class="upload-subtitle">or click to browse • Supports: JPG, PNG, GIF, BMP, WebP,
+                                    TIFF, PDF (Max 20MB)</div>
+                                <input type="file" class="file-input" id="fileInput"
+                                    accept="image/*,.pdf,application/pdf" onchange="handleFileSelect(event)">
+                            </div>
+
+                            <div class="file-preview" id="filePreview">
+                                <div class="file-preview-icon" id="fileIcon">🖼️</div>
+                                <div class="file-preview-info">
+                                    <div class="file-preview-name" id="fileName">image.jpg</div>
+                                    <div class="file-preview-size" id="fileSize">2.4 MB</div>
+                                </div>
+                                <button type="button" class="file-remove-btn" onclick="removeFile()">✕</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Section -->
+                    <div id="evaluationSection" style="display: none;">
+                        <div class="form-section">
+                            <div class="section-header">
+                                <div class="section-icon">⚙️</div>
+                                <div class="section-info">
+                                    <h3>Batch Evaluation Configuration</h3>
+                                    <p>Test models with LLM queries, OCR processing, or OCR + LLM parsing pipeline</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Evaluation Mode</label>
+                                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="radio" name="evalMode" class="eval-mode" value="llm" checked>
+                                            🤖 LLM Evaluation
+                                        </label>
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="radio" name="evalMode" class="eval-mode" value="ocr"> 📄 OCR
+                                            Evaluation
+                                        </label>
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="radio" name="evalMode" class="eval-mode" value="parser"> 🔄
+                                            Parser (OCR + LLM)
+                                        </label>
+                                    </div>
+                                    <small
+                                        style="color: var(--text-secondary); font-size: 12px; margin-top: 6px; display: block;">
+                                        • LLM: Test models with text queries<br>
+                                        • OCR: Test OCR configs on documents<br>
+                                        • Parser: Extract text with OCR, then process with LLM
+                                    </small>
+                                </div>
+                                <div class="form-group" id="evalLlMTasksGroup">
+                                    <label class="form-label">LLM Tasks</label>
+                                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="checkbox" class="eval-task" value="qa" checked> ❓ Q&A
+                                        </label>
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="checkbox" class="eval-task" value="summarize" checked> 📝
+                                            Summarization
+                                        </label>
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer;">
+                                            <input type="checkbox" class="eval-task" value="explain" checked> 💡
+                                            Explanation
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Subjects (Multi-Select)</label>
+                                    <select class="form-select" id="evalSubjects" multiple
+                                        style="min-height: 140px; padding: 8px; border: 2px solid var(--border); border-radius: var(--radius);">
+                                        <option value="">📚 General</option>
+                                        <option value="mathematics" selected>🔢 Mathematics</option>
+                                        <option value="physics" selected>⚛️ Physics</option>
+                                        <option value="chemistry">🧪 Chemistry</option>
+                                        <option value="biology">🧬 Biology</option>
+                                        <option value="computer_science">💻 Computer Science</option>
+                                        <option value="programming">👨‍💻 Programming</option>
+                                        <option value="history">📜 History</option>
+                                        <option value="geography">🌍 Geography</option>
+                                        <option value="literature">📕 Literature</option>
+                                        <option value="economics">💰 Economics</option>
+                                        <option value="philosophy">🤔 Philosophy</option>
+                                    </select>
+                                    <small
+                                        style="color: var(--text-secondary); font-size: 12px; margin-top: 6px; display: block;">
+                                        💡 Hold <strong>Ctrl</strong> (Windows) or <strong>Cmd</strong> (Mac) to select
+                                        multiple subjects
+                                    </small>
+                                    <div id="evalSubjectsSelected"
+                                        style="margin-top: 8px; font-size: 12px; color: var(--primary); font-weight: 500;">
+                                        2 subjects selected
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OCR/Parser Document Upload Section -->
+                            <div class="form-section" id="evalDocumentSection" style="display: none; margin-top: 24px;">
+                                <div class="section-header">
+                                    <div class="section-icon">📄</div>
+                                    <div class="section-info">
+                                        <h3>Document for OCR/Parser Evaluation</h3>
+                                        <p>Upload document(s) to test OCR or OCR + LLM pipeline</p>
+                                    </div>
+                                </div>
+                                <div id="evalDropZone" class="drop-zone" style="margin-top: 16px;">
+                                    <div style="text-align: center; padding: 40px 20px;">
+                                        <div style="font-size: 48px; margin-bottom: 16px;">📄</div>
+                                        <p style="font-size: 16px; color: var(--text-primary); margin-bottom: 8px;">
+                                            <strong>Drop document here or click to browse</strong>
+                                        </p>
+                                        <p style="font-size: 13px; color: var(--text-secondary);">
+                                            Supports: JPG, PNG, GIF, BMP, WebP, TIFF, PDF (max 20MB)
+                                        </p>
+                                    </div>
+                                    <input type="file" id="evalDocumentInput" multiple
+                                        accept=".jpg,.jpeg,.png,.gif,.bmp,.webp,.tiff,.pdf" style="display: none;">
+                                </div>
+                                <div id="evalFilePreview" style="display: none; margin-top: 16px;">
+                                    <div
+                                        style="background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--radius); padding: 16px;">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center;">
+                                            <div>
+                                                <div style="font-weight: 600; color: var(--text-primary);"
+                                                    id="evalFileName"></div>
+                                                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;"
+                                                    id="evalFileSize"></div>
+                                            </div>
+                                            <button type="button" class="action-btn action-btn-secondary"
+                                                onclick="removeEvalFile()" style="padding: 6px 12px;">
+                                                Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div id="evalMultipleFiles" style="margin-top: 12px;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Subjects Section (only for LLM mode) -->
+                            <div class="form-row" id="evalSubjectsRow">
+                                <div class="form-group">
+                                    <label class="form-label">Subjects (Multi-Select)</label>
+                                    <select class="form-select" id="evalSubjects" multiple
+                                        style="min-height: 140px; padding: 8px; border: 2px solid var(--border); border-radius: var(--radius);">
+                                        <option value="">📚 General</option>
+                                        <option value="mathematics" selected>🔢 Mathematics</option>
+                                        <option value="physics" selected>⚛️ Physics</option>
+                                        <option value="chemistry">🧪 Chemistry</option>
+                                        <option value="biology">🧬 Biology</option>
+                                        <option value="computer_science">💻 Computer Science</option>
+                                        <option value="programming">👨‍💻 Programming</option>
+                                        <option value="history">📜 History</option>
+                                        <option value="geography">🌍 Geography</option>
+                                        <option value="literature">📕 Literature</option>
+                                        <option value="economics">💰 Economics</option>
+                                        <option value="philosophy">🤔 Philosophy</option>
+                                    </select>
+                                    <small
+                                        style="color: var(--text-secondary); font-size: 12px; margin-top: 6px; display: block;">
+                                        💡 Hold <strong>Ctrl</strong> (Windows) or <strong>Cmd</strong> (Mac) to select
+                                        multiple subjects
+                                    </small>
+                                    <div id="evalSubjectsSelected"
+                                        style="margin-top: 8px; font-size: 12px; color: var(--primary); font-weight: 500;">
+                                        2 subjects selected
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section" style="margin-top: 24px;">
+                                <div class="section-header">
+                                    <div class="section-icon" id="evalModelsIcon">🤖</div>
+                                    <div class="section-info">
+                                        <h3 id="evalModelsTitle">Models to Evaluate</h3>
+                                        <p id="evalModelsHint">Select 2-5 models/configs for comparison (required)</p>
+                                    </div>
+                                </div>
+                                <div class="models-section">
+                                    <div class="models-header">
+                                        <span class="models-title" id="evalModelsTitleText">Available Models</span>
+                                        <span class="models-count" id="evalModelsCount">0 selected</span>
+                                    </div>
+                                    <div class="models-grid" id="evalModelsGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LLM Queries Section -->
+                        <div class="form-section" id="evalQueriesSection">
+                            <div class="section-header">
+                                <div class="section-icon">📝</div>
+                                <div class="section-info">
+                                    <h3>Evaluation Queries</h3>
+                                    <p>Enter queries manually or upload a file (JSON/CSV format)</p>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                                <button type="button" class="action-btn action-btn-secondary"
+                                    onclick="document.getElementById('evalQueryFile').click()">
+                                    📁 Upload Query File
+                                </button>
+                                <button type="button" class="action-btn action-btn-secondary"
+                                    onclick="loadExampleQueries()">
+                                    📋 Load Example Queries
+                                </button>
+                                <input type="file" id="evalQueryFile" accept=".json,.csv" style="display: none;"
+                                    onchange="handleQueryFileUpload(event)">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Queries (JSON or CSV format)</label>
+                                <textarea class="form-textarea" id="evalQueries"
+                                    placeholder='Enter queries as JSON array: [{"task": "qa", "subject": "mathematics", "query_text": "What is 2+2?", "difficulty": "easy", "reference": "4"}, ...] or CSV: task,subject,query_text,difficulty,reference'
+                                    style="min-height: 200px; font-family: monospace; font-size: 13px;"
+                                    oninput="updateEvalQueriesCount()"></textarea>
+                                <div class="char-counter">
+                                    <span id="evalQueriesCount">0 queries loaded</span>
+                                    <span style="margin-left: 12px; color: var(--text-secondary); font-size: 11px;">
+                                        Format: JSON array or CSV with headers
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-row" style="margin-top: 16px;">
+                                <div class="form-group">
+                                    <label class="form-label">Runs per Query</label>
+                                    <input type="number" class="form-input" id="evalRuns" value="1" min="1" max="5"
+                                        style="width: 100px;">
+                                    <small style="color: var(--text-secondary); font-size: 12px;">Average results over
+                                        multiple runs</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Auto-Score with LLM</label>
+                                    <label
+                                        style="display: flex; align-items: center; gap: 8px; font-weight: normal; cursor: pointer; margin-top: 8px;">
+                                        <input type="checkbox" id="evalAutoScore"
+                                            onchange="document.getElementById('evalJudgeModel').disabled = !this.checked">
+                                        Enable LLM-as-judge
+                                    </label>
+                                    <select class="form-select" id="evalJudgeModel"
+                                        style="margin-top: 8px; width: 100%;" disabled>
+                                        <option value="llama-3.3-70b-versatile">Llama 3.3 70B Versatile (Recommended)
+                                        </option>
+                                        <option value="llama-3.1-8b-instant">Llama 3.1 8B Instant</option>
+                                        <option value="mistral-7b-instruct">Mistral 7B Instruct</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="section-header">
+                            <div class="section-icon">🎯</div>
+                            <div class="section-info">
+                                <h3 id="modelSectionTitle">Select Model</h3>
+                                <p id="modelSectionHint">Choose a model to process your request</p>
+                            </div>
+                        </div>
+
+                        <div class="models-section">
+                            <div class="models-header">
+                                <span class="models-title">Available Models</span>
+                                <span class="models-count" id="modelsCount">0 selected</span>
+                            </div>
+                            <div class="models-grid" id="modelsGrid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="button" class="submit-btn" id="submitBtn"
+                        onclick="if(state.appMode === 'evaluation') { runBatchEvaluation(); } else { handleSubmit(); }"
+                        disabled>
+                        <span class="submit-btn-icon">🚀</span>
+                        <span id="submitBtnText">Select a model to continue</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <div class="results-title">
+                        <span>📊</span>
+                        <span id="resultsTitle">Results</span>
+                    </div>
+                    <div class="results-actions">
+                        <button class="action-btn action-btn-secondary" onclick="clearResults()">
+                            <span>🗑️</span>
+                            <span>Clear</span>
+                        </button>
+                        <button class="action-btn action-btn-primary" onclick="handleExport()">
+                            <span>📥</span>
+                            <span id="exportBtnText">Export JSON</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="results-grid" id="resultsGrid"></div>
+            </div>
+
+            <div class="stats-section" id="statsSection">
+                <div class="stats-title">
+                    <span>📈</span>
+                    <span>Performance Comparison</span>
+                </div>
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <div class="error-header">
+                    <span class="error-icon">⚠️</span>
+                    <span class="error-title">Error</span>
+                </div>
+                <div class="error-text" id="errorText"></div>
+            </div>
+        </div>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <div class="loading-text" id="loadingText">Processing your request...</div>
+            <div class="loading-subtext" id="loadingSubtext">This may take a few seconds</div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar" id="loadingProgressBar"></div>
+            </div>
+        </div>
+
+        <div class="toast" id="toast">
+            <span class="toast-icon" id="toastIcon">✓</span>
+            <span class="toast-text" id="toastText">Action completed</span>
+        </div>
+
+        <script>
+            // =============================================================================
+            // STATE MANAGEMENT
+            // =============================================================================
+            const state = {
+                appMode: 'llm',
+                comparisonMode: 'single',
+                selectedModels: [],
+                uploadedFile: null,
+                results: [],
+                isLoading: false
+            };
+
+            // =============================================================================
+            // MODEL DEFINITIONS - UPDATED
+            // =============================================================================
+            const MODELS = {
+                llm: [
+                    {
+                        id: 'mistral-7b-instruct',
+                        name: 'Mistral 7B Instruct',
+                        provider: 'OpenRouter',
+                        icon: '🌐',
+                        cost: 'free',
+                        speed: 'fast',
+                        quality: 4,
+                        description: 'Great for simple explanations, text summarization, and multilingual tasks'
+                    },
+                    {
+                        id: 'llama-3.1-8b-instant',
+                        name: 'Llama 3.1 8B Instant',
+                        provider: 'Groq',
+                        icon: '⚡',
+                        cost: 'free',
+                        speed: 'fastest',
+                        quality: 4,
+                        description: 'Ultra-fast responses, ideal for quick Q&A and real-time interactions'
+                    },
+                    {
+                        id: 'llama-3.3-70b-versatile',
+                        name: 'Llama 3.3 70B Versatile',
+                        provider: 'Groq',
+                        icon: '⚡',
+                        cost: 'free',
+                        speed: 'very-fast',
+                        quality: 5,
+                        description: 'Best for complex reasoning, math/science, and in-depth explanations'
+                    }
+                ],
+                ocr: [
+                    {
+                        id: 'tesseract-default',
+                        name: 'Tesseract Default',
+                        provider: 'Local',
+                        icon: '📄',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 4,
+                        description: 'Standard OCR with automatic page segmentation'
+                    },
+                    {
+                        id: 'tesseract-accurate',
+                        name: 'Tesseract LSTM (Best)',
+                        provider: 'Local',
+                        icon: '🎯',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 5,
+                        description: 'LSTM neural network for maximum accuracy'
+                    },
+                    {
+                        id: 'tesseract-legacy',
+                        name: 'Tesseract Legacy',
+                        provider: 'Local',
+                        icon: '📜',
+                        cost: 'free',
+                        speed: 'fast',
+                        quality: 3,
+                        description: 'Legacy engine, faster but less accurate'
+                    },
+                    {
+                        id: 'tesseract-auto-osd',
+                        name: 'Tesseract Auto + OSD',
+                        provider: 'Local',
+                        icon: '🔄',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 4,
+                        description: 'Auto page segmentation with orientation detection'
+                    },
+                    {
+                        id: 'tesseract-single-column',
+                        name: 'Tesseract Single Column',
+                        provider: 'Local',
+                        icon: '📃',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 4,
+                        description: 'Assumes single column of variable text'
+                    },
+                    {
+                        id: 'tesseract-block',
+                        name: 'Tesseract Text Block',
+                        provider: 'Local',
+                        icon: '⬜',
+                        cost: 'free',
+                        speed: 'fast',
+                        quality: 4,
+                        description: 'Assumes uniform block of text'
+                    },
+                    {
+                        id: 'tesseract-single-line',
+                        name: 'Tesseract Single Line',
+                        provider: 'Local',
+                        icon: '➖',
+                        cost: 'free',
+                        speed: 'fastest',
+                        quality: 4,
+                        description: 'Best for headers and single lines'
+                    },
+                    {
+                        id: 'tesseract-single-word',
+                        name: 'Tesseract Single Word',
+                        provider: 'Local',
+                        icon: '🔤',
+                        cost: 'free',
+                        speed: 'fastest',
+                        quality: 4,
+                        description: 'Individual words or short text'
+                    },
+                    {
+                        id: 'tesseract-sparse',
+                        name: 'Tesseract Sparse Text',
+                        provider: 'Local',
+                        icon: '🔍',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 3,
+                        description: 'Scattered text and diagram labels'
+                    },
+                    {
+                        id: 'tesseract-raw',
+                        name: 'Tesseract Raw Line',
+                        provider: 'Local',
+                        icon: '📏',
+                        cost: 'free',
+                        speed: 'fast',
+                        quality: 4,
+                        description: 'Raw line detection mode'
+                    },
+                    {
+                        id: 'tesseract-arabic',
+                        name: 'Tesseract Arabic',
+                        provider: 'Local',
+                        icon: '🕌',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 4,
+                        description: 'Optimized for Arabic text recognition'
+                    },
+                    {
+                        id: 'tesseract-multilang',
+                        name: 'Tesseract Multi-Language',
+                        provider: 'Local',
+                        icon: '🌐',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 4,
+                        description: 'Supports English and Arabic simultaneously'
+                    },
+                    {
+                        id: 'tesseract-arabic-accurate',
+                        name: 'Tesseract Arabic LSTM',
+                        provider: 'Local',
+                        icon: '🎯',
+                        cost: 'free',
+                        speed: 'medium',
+                        quality: 5,
+                        description: 'LSTM neural network for Arabic text'
+                    }
+                ]
+            };
+
+            // =============================================================================
+            // INITIALIZATION
+            // =============================================================================
+            document.addEventListener('DOMContentLoaded', () => {
+                renderModels();
+                setupDragAndDrop();
+                updateQueryHint();
+                updateStepLabels();
+
+                // Initialize evaluation components
+                const evalQueriesTextarea = document.getElementById('evalQueries');
+                if (evalQueriesTextarea) {
+                    evalQueriesTextarea.addEventListener('input', updateEvalQueriesCount);
+                }
+
+                // Add subject selection tracking
+                const evalSubjectsSelect = document.getElementById('evalSubjects');
+                if (evalSubjectsSelect) {
+                    evalSubjectsSelect.addEventListener('change', () => {
+                        updateEvalSubjectsCount();
+                        updateSubmitButton();
+                    });
+                    // Initial count
+                    updateEvalSubjectsCount();
+                }
+
+                // Add task checkbox listeners
+                document.querySelectorAll('.eval-task').forEach(checkbox => {
+                    checkbox.addEventListener('change', updateSubmitButton);
+                });
+
+                // Add mode change listeners
+                document.querySelectorAll('.eval-mode').forEach(radio => {
+                    radio.addEventListener('change', handleEvalModeChange);
+                });
+
+                // Initialize evaluation document upload
+                setupEvalDocumentUpload();
+
+                // Initialize evaluation models if in evaluation mode
+                if (state.appMode === 'evaluation') {
+                    handleEvalModeChange();
+                    renderEvalModels();
+                }
+            });
+
+            function setupEvalDocumentUpload() {
+                const dropZone = document.getElementById('evalDropZone');
+                const fileInput = document.getElementById('evalDocumentInput');
+
+                if (!dropZone || !fileInput) return;
+
+                dropZone.addEventListener('click', () => fileInput.click());
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.style.borderColor = 'var(--primary)';
+                });
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.style.borderColor = 'var(--border)';
+                });
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.style.borderColor = 'var(--border)';
+                    handleEvalFileUpload(e.dataTransfer.files);
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    handleEvalFileUpload(e.target.files);
+                });
+            }
+
+            function handleEvalFileUpload(files) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp', 'image/tiff', 'application/pdf'];
+                const maxSize = 20 * 1024 * 1024; // 20MB
+
+                Array.from(files).forEach(file => {
+                    if (!validTypes.includes(file.type)) {
+                        showToast(`Invalid file type: ${file.name}. Supported: JPG, PNG, GIF, BMP, WebP, TIFF, PDF`, 'error');
+                        return;
+                    }
+                    if (file.size > maxSize) {
+                        showToast(`File too large: ${file.name}. Maximum size is 20MB.`, 'error');
+                        return;
+                    }
+                    if (!evalState.uploadedFiles.find(f => f.name === file.name && f.size === file.size)) {
+                        evalState.uploadedFiles.push(file);
+                    }
+                });
+
+                updateEvalFilePreview();
+                updateSubmitButton();
+            }
+
+            function updateEvalFilePreview() {
+                const preview = document.getElementById('evalFilePreview');
+                const multipleFiles = document.getElementById('evalMultipleFiles');
+
+                if (evalState.uploadedFiles.length === 0) {
+                    preview.style.display = 'none';
+                    return;
+                }
+
+                preview.style.display = 'block';
+
+                if (evalState.uploadedFiles.length === 1) {
+                    const file = evalState.uploadedFiles[0];
+                    document.getElementById('evalFileName').textContent = file.name;
+                    document.getElementById('evalFileSize').textContent = formatFileSize(file.size);
+                    multipleFiles.innerHTML = '';
+                } else {
+                    document.getElementById('evalFileName').textContent = `${evalState.uploadedFiles.length} files selected`;
+                    document.getElementById('evalFileSize').textContent = formatFileSize(
+                        evalState.uploadedFiles.reduce((sum, f) => sum + f.size, 0)
+                    );
+                    multipleFiles.innerHTML = evalState.uploadedFiles.map((file, idx) => `
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: var(--bg-light); border-radius: 8px; margin-top: 8px;">
+                            <span style="font-size: 13px;">${file.name} (${formatFileSize(file.size)})</span>
+                            <button type="button" onclick="removeEvalFile(${idx})" style="padding: 4px 8px; font-size: 12px;">Remove</button>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            function removeEvalFile(index) {
+                if (index !== undefined) {
+                    evalState.uploadedFiles.splice(index, 1);
+                } else {
+                    evalState.uploadedFiles = [];
+                }
+                updateEvalFilePreview();
+                updateSubmitButton();
+            }
+
+            // =============================================================================
+            // MODE SWITCHING
+            // =============================================================================
+            function switchAppMode(mode) {
+                state.appMode = mode;
+                state.selectedModels = [];
+                document.querySelectorAll('.tab-btn[data-mode]').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.mode === mode);
+                });
+                document.getElementById('llmSection').style.display = mode === 'llm' ? 'block' : 'none';
+                document.getElementById('ocrSection').style.display = mode === 'ocr' ? 'block' : 'none';
+                document.getElementById('evaluationSection').style.display = mode === 'evaluation' ? 'block' : 'none';
+
+                // Hide general model selection section in evaluation mode (evaluation has its own)
+                const generalModelSection = document.getElementById('modelSectionTitle')?.parentElement?.parentElement;
+                if (generalModelSection) {
+                    generalModelSection.style.display = mode === 'evaluation' ? 'none' : 'block';
+                }
+                if (mode === 'evaluation') {
+                    handleEvalModeChange();
+                    updateEvalQueriesCount();
+                    // Update subject selection count display
+                    setTimeout(() => {
+                        updateEvalSubjectsCount();
+                        updateSubmitButton();
+                    }, 100);
+                } else {
+                    updateStepLabels();
+                    renderModels();
+                }
+                updateSubmitButton();
+                clearResults();
+            }
+
+            function updateEvalSubjectsCount() {
+                const evalSubjectsSelect = document.getElementById('evalSubjects');
+                const display = document.getElementById('evalSubjectsSelected');
+                if (evalSubjectsSelect && display) {
+                    const selected = Array.from(evalSubjectsSelect.selectedOptions);
+                    const count = selected.length;
+                    display.textContent = count === 0 ? '0 subjects selected' :
+                        count === 1 ? '1 subject selected' :
+                            `${count} subjects selected`;
+                }
+            }
+
+            function switchComparisonMode(mode) {
+                state.comparisonMode = mode;
+                state.selectedModels = [];
+                document.querySelectorAll('.tab-btn[data-comparison]').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.comparison === mode);
+                });
+                if (mode === 'single') {
+                    document.getElementById('modelSectionTitle').textContent = 'Select Model';
+                    document.getElementById('modelSectionHint').textContent = 'Choose one model to process your request';
+                } else {
+                    document.getElementById('modelSectionTitle').textContent = 'Select Models to Compare';
+                    document.getElementById('modelSectionHint').textContent = 'Choose 2-5 models for side-by-side comparison';
+                }
+                renderModels();
+                updateSubmitButton();
+            }
+
+            function updateStepLabels() {
+                document.getElementById('stepLabel1').textContent = state.appMode === 'llm' ? 'Configure' : 'Upload';
+                document.getElementById('stepLabel2').textContent = state.appMode === 'llm' ? 'Query' : 'File';
+            }
+
+            // =============================================================================
+            // MODEL RENDERING
+            // =============================================================================
+            function renderModels() {
+                const models = MODELS[state.appMode];
+                const grid = document.getElementById('modelsGrid');
+                grid.innerHTML = models.map(model => `
+                <div class="model-card ${state.selectedModels.includes(model.id) ? 'selected' : ''}" 
+                     onclick="toggleModel('${model.id}')"
+                     data-model-id="${model.id}">
+                    <div class="model-card-header">
+                        <div class="model-icon">${model.icon}</div>
+                        <div class="model-info">
+                            <div class="model-name">${model.name}</div>
+                            <div class="model-provider">${model.provider}</div>
+                        </div>
+                    </div>
+                    <div class="model-badges">
+                        <span class="badge ${model.cost === 'free' ? 'badge-free' : 'badge-cheap'}">
+                            ${model.cost === 'free' ? '✓ Free' : '$ Low Cost'}
+                        </span>
+                        <span class="badge badge-fast">${getSpeedLabel(model.speed)}</span>
+                        <span class="badge badge-quality">${'⭐'.repeat(model.quality)}</span>
+                    </div>
+                    <div class="model-description">${model.description}</div>
+                </div>
+            `).join('');
+                updateModelsCount();
+            }
+
+            function toggleModel(modelId) {
+                const index = state.selectedModels.indexOf(modelId);
+                if (state.comparisonMode === 'single') {
+                    state.selectedModels = index > -1 ? [] : [modelId];
+                } else {
+                    if (index > -1) {
+                        state.selectedModels.splice(index, 1);
+                    } else if (state.selectedModels.length < 5) {
+                        state.selectedModels.push(modelId);
+                    } else {
+                        showToast('Maximum 5 models can be compared', 'error');
+                        return;
+                    }
+                }
+                document.querySelectorAll('.model-card').forEach(card => {
+                    card.classList.toggle('selected', state.selectedModels.includes(card.dataset.modelId));
+                });
+                updateModelsCount();
+                updateSubmitButton();
+                updateStep(3);
+            }
+
+            function updateModelsCount() {
+                const count = state.selectedModels.length;
+                const text = count === 0 ? 'None selected' : count === 1 ? '1 selected' : `${count} selected`;
+                document.getElementById('modelsCount').textContent = text;
+            }
+
+            // =============================================================================
+            // FORM HANDLING
+            // =============================================================================
+            function handleTaskTypeChange() {
+                updateQueryHint();
+                updateStep(1);
+            }
+
+            function handleQueryInput() {
+                const textarea = document.getElementById('queryText');
+                document.getElementById('charCount').textContent = textarea.value.length;
+                updateSubmitButton();
+                if (textarea.value.trim().length > 0) updateStep(2);
+            }
+
+            function updateQueryHint() {
+                const taskType = document.getElementById('taskType').value;
+                const hints = { qa: 'Enter your question to get a detailed answer', summarize: 'Paste the text you want summarized', explain: 'Enter a concept or topic you want explained' };
+                const placeholders = { qa: 'Type your question here...', summarize: 'Paste the text you want summarized...', explain: 'What concept would you like explained?' };
+                document.getElementById('queryHint').textContent = hints[taskType] || hints.qa;
+                document.getElementById('queryText').placeholder = placeholders[taskType] || placeholders.qa;
+            }
+
+            function updateSubmitButton() {
+                const btn = document.getElementById('submitBtn');
+                const btnText = document.getElementById('submitBtnText');
+
+                if (state.appMode === 'evaluation') {
+                    // Evaluation mode validation based on current mode
+                    const modelCount = evalState.selectedModels.length;
+                    const mode = evalState.mode;
+
+                    let isValid = false;
+                    let statusText = '';
+
+                    if (evalState.isRunning) {
+                        statusText = 'Evaluation in progress...';
+                    } else if (modelCount < 2) {
+                        statusText = `Select at least 2 ${mode === 'ocr' ? 'OCR configs' : 'models'} (${modelCount} selected)`;
+                    } else if (mode === 'llm') {
+                        const hasQueries = evalState.queries.length > 0;
+                        const selectedTasks = Array.from(document.querySelectorAll('.eval-task:checked')).length > 0;
+                        const selectedSubjects = Array.from(document.getElementById('evalSubjects').selectedOptions).length > 0;
+                        isValid = modelCount >= 2 && hasQueries && selectedTasks && selectedSubjects;
+
+                        if (!selectedTasks) {
+                            statusText = 'Select at least one task';
+                        } else if (!selectedSubjects) {
+                            statusText = 'Select at least one subject';
+                        } else if (!hasQueries) {
+                            statusText = 'Enter or load queries';
+                        } else {
+                            statusText = `Run LLM Evaluation (${modelCount} models, ${evalState.queries.length} queries)`;
+                        }
+                    } else if (mode === 'ocr') {
+                        const hasFiles = evalState.uploadedFiles.length > 0;
+                        isValid = modelCount >= 2 && hasFiles;
+
+                        if (!hasFiles) {
+                            statusText = 'Upload at least one document';
+                        } else {
+                            statusText = `Run OCR Evaluation (${modelCount} configs, ${evalState.uploadedFiles.length} document${evalState.uploadedFiles.length > 1 ? 's' : ''})`;
+                        }
+                    } else if (mode === 'parser') {
+                        const hasFiles = evalState.uploadedFiles.length > 0;
+                        isValid = modelCount >= 2 && hasFiles;
+
+                        if (!hasFiles) {
+                            statusText = 'Upload at least one document';
+                        } else {
+                            statusText = `Run Parser Evaluation (${modelCount} models, ${evalState.uploadedFiles.length} document${evalState.uploadedFiles.length > 1 ? 's' : ''})`;
+                        }
+                    }
+
+                    btn.disabled = !isValid;
+                    btnText.textContent = statusText;
+                } else {
+                    // LLM/OCR mode validation
+                    const count = state.selectedModels.length;
+                    const minRequired = state.comparisonMode === 'compare' ? 2 : 1;
+                    let hasContent = state.appMode === 'llm' ? document.getElementById('queryText').value.trim().length > 0 : state.uploadedFile !== null;
+                    const isValid = count >= minRequired && hasContent;
+                    btn.disabled = !isValid;
+                    if (!hasContent) {
+                        btnText.textContent = state.appMode === 'llm' ? 'Enter your query to continue' : 'Upload a file to continue';
+                    } else if (count < minRequired) {
+                        btnText.textContent = state.comparisonMode === 'compare' ? `Select at least ${minRequired} models` : 'Select a model to continue';
+                    } else {
+                        btnText.textContent = state.comparisonMode === 'compare' ? `Compare ${count} Models` : 'Get Result';
+                    }
+                }
+            }
+
+            // =============================================================================
+            // FILE HANDLING
+            // =============================================================================
+            function setupDragAndDrop() {
+                const dropZone = document.getElementById('dropZone');
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+                });
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => { dropZone.classList.add('dragover'); }, false);
+                });
+                ['dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => { dropZone.classList.remove('dragover'); }, false);
+                });
+                dropZone.addEventListener('drop', (e) => {
+                    const files = e.dataTransfer.files;
+                    if (files.length) handleFile(files[0]);
+                }, false);
+            }
+
+            function handleFileSelect(event) {
+                const file = event.target.files[0];
+                if (file) handleFile(file);
+            }
+
+            function handleFile(file) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp', 'image/tiff', 'application/pdf'];
+                if (!validTypes.includes(file.type)) {
+                    showToast('Invalid file type. Supported: JPG, PNG, GIF, BMP, WebP, TIFF, PDF', 'error');
+                    return;
+                }
+                if (file.size > 20 * 1024 * 1024) {
+                    showToast('File too large. Maximum size is 20MB.', 'error');
+                    return;
+                }
+                state.uploadedFile = file;
+                document.getElementById('dropZone').style.display = 'none';
+                document.getElementById('filePreview').classList.add('visible');
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = formatFileSize(file.size);
+                updateSubmitButton();
+                updateStep(2);
+            }
+
+            function removeFile() {
+                state.uploadedFile = null;
+                document.getElementById('fileInput').value = '';
+                document.getElementById('dropZone').style.display = 'block';
+                document.getElementById('filePreview').classList.remove('visible');
+                updateSubmitButton();
+            }
+
+            // =============================================================================
+            // STEP PROGRESS
+            // =============================================================================
+            function updateStep(step) {
+                document.querySelectorAll('.step').forEach((el, index) => {
+                    const stepNum = index + 1;
+                    el.classList.remove('active', 'completed');
+                    if (stepNum < step) el.classList.add('completed');
+                    else if (stepNum === step) el.classList.add('active');
+                });
+                document.querySelectorAll('.step-divider').forEach((el, index) => {
+                    el.classList.toggle('completed', index < step - 1);
+                });
+            }
+
+            // =============================================================================
+            // FORM SUBMISSION
+            // =============================================================================
+            async function handleSubmit() {
+                if (state.isLoading) return;
+                const btn = document.getElementById('submitBtn');
+                if (btn.disabled) return;
+                if (state.appMode === 'llm') {
+                    const query = document.getElementById('queryText').value.trim();
+                    if (!query) { showToast('Please enter a query', 'error'); return; }
+                } else {
+                    if (!state.uploadedFile) { showToast('Please upload a file', 'error'); return; }
+                }
+                const minRequired = state.comparisonMode === 'compare' ? 2 : 1;
+                if (state.selectedModels.length < minRequired) {
+                    showToast(`Please select at least ${minRequired} model(s)`, 'error');
+                    return;
+                }
+                showLoading(true);
+                hideError();
+                state.isLoading = true;
+                try {
+                    let response = state.appMode === 'llm' ? await submitLLMRequest() : await submitOCRRequest();
+                    if (response.success) {
+                        displayResults(response);
+                        updateStep(4);
+                        showToast('Request completed successfully!', 'success');
+                    } else {
+                        throw new Error(response.error || 'Request failed');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    const errorMsg = error.message || 'Request failed. Check console for details.';
+                    showError(errorMsg);
+                    showToast(errorMsg, 'error');
+                } finally {
+                    showLoading(false);
+                    state.isLoading = false;
+                }
+            }
+
+            async function submitLLMRequest() {
+                const taskType = document.getElementById('taskType').value;
+                const subject = document.getElementById('subject').value;
+                const question = document.getElementById('queryText').value.trim();
+                const endpoint = state.comparisonMode === 'compare' ? '/api/compare' : '/api/ask';
+                const body = {
+                    taskType, subject, question,
+                    ...(state.comparisonMode === 'compare' ? { modelIds: state.selectedModels } : { modelId: state.selectedModels[0] })
+                };
+
+                try {
+                    const response = await fetch(`http://localhost:3000${endpoint}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}: ${response.statusText}` }));
+                        throw new Error(errorData.error || `Request failed with status ${response.status}`);
+                    }
+
+                    return await response.json();
+                } catch (error) {
+                    console.error('LLM request error:', error);
+                    throw error;
+                }
+            }
+
+            async function submitOCRRequest() {
+                if (!state.uploadedFile) {
+                    throw new Error('No file uploaded');
+                }
+
+                const formData = new FormData();
+                formData.append('document', state.uploadedFile);
+                if (state.comparisonMode === 'compare') {
+                    formData.append('modelIds', JSON.stringify(state.selectedModels));
+                } else {
+                    formData.append('modelId', state.selectedModels[0]);
+                }
+                const endpoint = state.comparisonMode === 'compare' ? '/api/ocr-compare' : '/api/ocr';
+
+                try {
+                    const response = await fetch(`http://localhost:3000${endpoint}`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}: ${response.statusText}` }));
+                        throw new Error(errorData.error || `Request failed with status ${response.status}`);
+                    }
+
+                    return await response.json();
+                } catch (error) {
+                    console.error('OCR request error:', error);
+                    throw error;
+                }
+            }
+
+            // =============================================================================
+            // RESULTS DISPLAY
+            // =============================================================================
+            function displayResults(data) {
+                const resultsSection = document.getElementById('resultsSection');
+                const resultsGrid = document.getElementById('resultsGrid');
+                resultsSection.classList.add('visible');
+                let results;
+                if (data.results) {
+                    results = data.results;
+                } else {
+                    const model = MODELS[state.appMode].find(m => m.id === state.selectedModels[0]);
+                    results = [{
+                        modelId: state.selectedModels[0],
+                        model: model,
+                        answer: data.answer,
+                        text: data.text,
+                        responseTime: data.responseTime,
+                        confidence: data.confidence,
+                        words: data.words,
+                        lines: data.lines,
+                        success: true
+                    }];
+                }
+                let fastestTime = Infinity, winnerId = null;
+                if (results.length > 1) {
+                    results.forEach(r => {
+                        if (r.success !== false && r.responseTime < fastestTime) {
+                            fastestTime = r.responseTime;
+                            winnerId = r.modelId;
+                        }
+                    });
+                }
+                resultsGrid.innerHTML = results.map((result, index) => {
+                    const isWinner = result.modelId === winnerId && results.length > 1;
+                    const model = result.model || MODELS[state.appMode].find(m => m.id === result.modelId);
+                    const content = result.answer || result.text || '';
+                    return `
+                    <div class="result-card ${isWinner ? 'winner' : ''}" data-index="${index}">
+                        <div class="winner-badge"><span>🏆</span><span>Fastest Response</span></div>
+                        <div class="result-card-header">
+                            <div class="result-model-info">
+                                <div class="result-model-icon">${model?.icon || '🤖'}</div>
+                                <div class="result-model-details">
+                                    <h4>${model?.name || 'Unknown Model'}</h4>
+                                    <p>${model?.provider || 'Unknown'}</p>
+                                </div>
+                            </div>
+                            <div class="result-metrics">
+                                ${result.responseTime ? `<div class="result-metric"><span class="metric-icon">⏱️</span><span class="metric-value">${(result.responseTime / 1000).toFixed(2)}s</span></div>` : ''}
+                                ${content ? `<div class="result-metric"><span class="metric-icon">📝</span><span class="metric-value">${content.length}</span><span class="metric-label">chars</span></div>` : ''}
+                                ${result.confidence !== undefined ? `<div class="result-metric"><span class="metric-icon">🎯</span><span class="metric-value">${result.confidence.toFixed(1)}%</span><span class="metric-label">conf</span></div>` : ''}
+                                ${result.words !== undefined ? `<div class="result-metric"><span class="metric-icon">🔤</span><span class="metric-value">${result.words}</span><span class="metric-label">words</span></div>` : ''}
+                            </div>
+                        </div>
+                        <div class="result-content">
+                            ${result.success === false ? `<div class="result-error">Error: ${result.error}</div>` : `<div class="result-text">${escapeHtml(content)}</div>`}
+                        </div>
+                        <div class="result-card-footer">
+                            <button class="copy-btn" onclick="copyResult(${index})"><span>📋</span><span>Copy</span></button>
+                        </div>
+                    </div>
+                `;
+                }).join('');
+                state.results = results;
+                if (results.length > 1) showComparisonStats(results);
+                resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            function showComparisonStats(results) {
+                const statsSection = document.getElementById('statsSection');
+                const statsGrid = document.getElementById('statsGrid');
+                statsSection.classList.add('visible');
+                const successResults = results.filter(r => r.success !== false);
+                const times = successResults.map(r => r.responseTime || 0);
+                const lengths = successResults.map(r => (r.answer || r.text || '').length);
+                const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
+                const fastest = Math.min(...times);
+                const avgLength = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+                statsGrid.innerHTML = `
+                <div class="stat-card"><div class="stat-value">${successResults.length}/${results.length}</div><div class="stat-label">Successful</div></div>
+                <div class="stat-card"><div class="stat-value">${(fastest / 1000).toFixed(2)}s</div><div class="stat-label">Fastest</div></div>
+                <div class="stat-card"><div class="stat-value">${(avgTime / 1000).toFixed(2)}s</div><div class="stat-label">Average Time</div></div>
+                <div class="stat-card"><div class="stat-value">${Math.round(avgLength)}</div><div class="stat-label">Avg Length</div></div>
+            `;
+            }
+
+            function copyResult(index) {
+                const result = state.results[index];
+                const text = result.answer || result.text || '';
+                navigator.clipboard.writeText(text).then(() => {
+                    const btns = document.querySelectorAll('.copy-btn');
+                    const btn = btns[index];
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<span>✓</span><span>Copied!</span>';
+                    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<span>📋</span><span>Copy</span>'; }, 2000);
+                    showToast('Copied to clipboard!', 'success');
+                }).catch(() => { showToast('Failed to copy', 'error'); });
+            }
+
+            function exportResults() {
+                if (state.results.length === 0) { showToast('No results to export', 'error'); return; }
+                const exportData = {
+                    timestamp: new Date().toISOString(),
+                    mode: state.appMode,
+                    comparisonMode: state.comparisonMode,
+                    results: state.results.map(r => ({
+                        model: r.model?.name || 'Unknown',
+                        provider: r.model?.provider || 'Unknown',
+                        responseTime: r.responseTime,
+                        success: r.success !== false,
+                        content: r.answer || r.text || '',
+                        confidence: r.confidence,
+                        words: r.words,
+                        error: r.error
+                    }))
+                };
+                const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `ai-test-results-${Date.now()}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('Results exported!', 'success');
+            }
+
+            function clearResults() {
+                state.results = [];
+                document.getElementById('resultsSection').classList.remove('visible');
+                document.getElementById('statsSection').classList.remove('visible');
+            }
+
+            // =============================================================================
+            // UI HELPERS
+            // =============================================================================
+            function showLoading(show) {
+                const overlay = document.getElementById('loadingOverlay');
+                overlay.classList.toggle('active', show);
+                if (show) {
+                    let progress = 0;
+                    const progressBar = document.getElementById('loadingProgressBar');
+                    const interval = setInterval(() => {
+                        progress += Math.random() * 15;
+                        if (progress > 90) progress = 90;
+                        progressBar.style.width = `${progress}%`;
+                        if (!overlay.classList.contains('active')) {
+                            progressBar.style.width = '100%';
+                            setTimeout(() => { progressBar.style.width = '0%'; }, 300);
+                            clearInterval(interval);
+                        }
+                    }, 500);
+                }
+            }
+
+            function showError(message) {
+                const errorDiv = document.getElementById('errorMessage');
+                document.getElementById('errorText').textContent = message;
+                errorDiv.classList.add('visible');
+            }
+
+            function hideError() { document.getElementById('errorMessage').classList.remove('visible'); }
+
+            function showToast(message, type = 'success') {
+                const toast = document.getElementById('toast');
+                const toastText = document.getElementById('toastText');
+                const toastIcon = document.getElementById('toastIcon');
+                toast.className = `toast ${type}`;
+                toastText.textContent = message;
+                toastIcon.textContent = type === 'success' ? '✓' : '✕';
+                toast.classList.add('show');
+                setTimeout(() => { toast.classList.remove('show'); }, 3000);
+            }
+
+            // =============================================================================
+            // UTILITY FUNCTIONS
+            // =============================================================================
+            function getSpeedLabel(speed) {
+                const labels = { fastest: '🚀 Fastest', 'very-fast': '⚡ Very Fast', fast: '💨 Fast', medium: '⏱️ Medium', slow: '🐢 Slower' };
+                return labels[speed] || speed;
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+                return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // =============================================================================
+            // EVALUATION MODE FUNCTIONS
+            // =============================================================================
+
+            const evalState = {
+                mode: 'llm', // 'llm', 'ocr', 'parser'
+                selectedModels: [],
+                queries: [],
+                results: [],
+                uploadedFiles: [],
+                isRunning: false
+            };
+
+            // Mode switching handler
+            function handleEvalModeChange() {
+                const selectedMode = document.querySelector('input[name="evalMode"]:checked')?.value || 'llm';
+                evalState.mode = selectedMode;
+                evalState.selectedModels = [];
+                evalState.uploadedFiles = [];
+
+                // Show/hide sections based on mode
+                const llmTasksGroup = document.getElementById('evalLlMTasksGroup');
+                const subjectsRow = document.getElementById('evalSubjectsRow');
+                const queriesSection = document.getElementById('evalQueriesSection');
+                const documentSection = document.getElementById('evalDocumentSection');
+                const filePreview = document.getElementById('evalFilePreview');
+
+                if (selectedMode === 'llm') {
+                    // LLM mode: show tasks, subjects, queries
+                    if (llmTasksGroup) llmTasksGroup.style.display = 'block';
+                    if (subjectsRow) subjectsRow.style.display = 'flex';
+                    if (queriesSection) queriesSection.style.display = 'block';
+                    if (documentSection) documentSection.style.display = 'none';
+                    if (filePreview) filePreview.style.display = 'none';
+                    document.getElementById('evalModelsIcon').textContent = '🤖';
+                    document.getElementById('evalModelsTitle').textContent = 'LLM Models to Evaluate';
+                    document.getElementById('evalModelsHint').textContent = 'Select 2-5 LLM models for comparison (required)';
+                    document.getElementById('evalModelsTitleText').textContent = 'Available LLM Models';
+                } else if (selectedMode === 'ocr') {
+                    // OCR mode: show document upload, OCR configs
+                    if (llmTasksGroup) llmTasksGroup.style.display = 'none';
+                    if (subjectsRow) subjectsRow.style.display = 'none';
+                    if (queriesSection) queriesSection.style.display = 'none';
+                    if (documentSection) documentSection.style.display = 'block';
+                    document.getElementById('evalModelsIcon').textContent = '📄';
+                    document.getElementById('evalModelsTitle').textContent = 'OCR Configurations to Evaluate';
+                    document.getElementById('evalModelsHint').textContent = 'Select 2-5 OCR configurations for comparison (required)';
+                    document.getElementById('evalModelsTitleText').textContent = 'Available OCR Configurations';
+                } else if (selectedMode === 'parser') {
+                    // Parser mode: show document upload, LLM models
+                    if (llmTasksGroup) llmTasksGroup.style.display = 'none';
+                    if (subjectsRow) subjectsRow.style.display = 'none';
+                    if (queriesSection) queriesSection.style.display = 'none';
+                    if (documentSection) documentSection.style.display = 'block';
+                    document.getElementById('evalModelsIcon').textContent = '🔄';
+                    document.getElementById('evalModelsTitle').textContent = 'LLM Models for Parsing';
+                    document.getElementById('evalModelsHint').textContent = 'Select 2-5 LLM models to process OCR-extracted text (required)';
+                    document.getElementById('evalModelsTitleText').textContent = 'Available LLM Models';
+                }
+
+                renderEvalModels();
+                updateSubmitButton();
+            }
+
+            function renderEvalModels() {
+                const grid = document.getElementById('evalModelsGrid');
+                let models;
+
+                if (evalState.mode === 'ocr') {
+                    models = MODELS.ocr;
+                } else {
+                    models = MODELS.llm;
+                }
+
+                grid.innerHTML = models.map(model => `
+                    <div class="model-card ${evalState.selectedModels.includes(model.id) ? 'selected' : ''}" 
+                         onclick="toggleEvalModel('${model.id}')"
+                         data-model-id="${model.id}">
+                        <div class="model-card-header">
+                            <div class="model-icon">${model.icon}</div>
+                            <div class="model-info">
+                                <div class="model-name">${model.name}</div>
+                                <div class="model-provider">${model.provider || 'Local'}</div>
+                            </div>
+                        </div>
+                        <div class="model-badges">
+                            <span class="badge ${model.cost === 'free' ? 'badge-free' : 'badge-cheap'}">
+                                ${model.cost === 'free' ? '✓ Free' : '$ Low Cost'}
+                            </span>
+                            <span class="badge badge-fast">${getSpeedLabel(model.speed)}</span>
+                            <span class="badge badge-quality">${'⭐'.repeat(model.quality)}</span>
+                        </div>
+                        <div class="model-description">${model.description}</div>
+                    </div>
+                `).join('');
+                updateEvalModelsCount();
+            }
+
+            function toggleEvalModel(modelId) {
+                const index = evalState.selectedModels.indexOf(modelId);
+                if (index > -1) {
+                    evalState.selectedModels.splice(index, 1);
+                } else {
+                    if (evalState.selectedModels.length < 5) {
+                        evalState.selectedModels.push(modelId);
+                    } else {
+                        showToast('Maximum 5 models can be selected', 'error');
+                        return;
+                    }
+                }
+                document.querySelectorAll('#evalModelsGrid .model-card').forEach(card => {
+                    card.classList.toggle('selected', evalState.selectedModels.includes(card.dataset.modelId));
+                });
+                updateEvalModelsCount();
+                updateSubmitButton();
+            }
+
+            function updateEvalModelsCount() {
+                const count = evalState.selectedModels.length;
+                const text = count === 0 ? 'None selected' : count === 1 ? '1 selected' : `${count} selected`;
+                document.getElementById('evalModelsCount').textContent = text;
+            }
+
+            function handleQueryFileUpload(event) {
+                const file = event.target?.files?.[0];
+                if (!file) {
+                    console.warn('No file selected');
+                    return;
+                }
+
+                console.log('File selected:', file.name, file.type, file.size);
+
+                // Validate file type
+                if (!file.name.endsWith('.json') && !file.name.endsWith('.csv')) {
+                    showToast('Invalid file type. Please upload a .json or .csv file', 'error');
+                    event.target.value = ''; // Clear the input
+                    return;
+                }
+
+                // Validate file size (max 5MB for query files)
+                if (file.size > 5 * 1024 * 1024) {
+                    showToast('File too large. Maximum size is 5MB', 'error');
+                    event.target.value = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const content = e.target.result.trim();
+                        if (!content) {
+                            showToast('File is empty', 'error');
+                            return;
+                        }
+                        if (file.name.endsWith('.json')) {
+                            try {
+                                // Try to parse JSON
+                                let parsed = JSON.parse(content);
+                                let queries = [];
+
+                                // Handle different JSON structures
+                                if (Array.isArray(parsed)) {
+                                    // Already an array - validate it has query objects
+                                    if (parsed.length === 0) {
+                                        throw new Error('JSON array is empty');
+                                    }
+                                    // Validate each item has required fields
+                                    queries = parsed.map((item, idx) => {
+                                        if (typeof item !== 'object' || item === null) {
+                                            throw new Error(`Item at index ${idx} is not an object`);
+                                        }
+                                        // Ensure required fields exist (with defaults)
+                                        return {
+                                            task: item.task || item.taskType || 'qa',
+                                            subject: item.subject || '',
+                                            query_text: item.query_text || item.question || item.query || item.text || '',
+                                            difficulty: item.difficulty || 'medium',
+                                            reference: item.reference || item.answer || item.ground_truth || ''
+                                        };
+                                    }).filter(item => item.query_text.trim() !== ''); // Remove empty queries
+
+                                } else if (typeof parsed === 'object' && parsed !== null) {
+                                    // Check if it's a nested structure with tasks
+                                    if (parsed.tasks && typeof parsed.tasks === 'object') {
+                                        // Handle nested structure: { subject: "...", tasks: { qa: [...], summarize: [...] } }
+                                        const subject = parsed.subject || '';
+                                        const description = parsed.description || '';
+
+                                        Object.keys(parsed.tasks).forEach(taskType => {
+                                            const taskQueries = parsed.tasks[taskType];
+                                            if (Array.isArray(taskQueries)) {
+                                                taskQueries.forEach((item, itemIdx) => {
+                                                    if (typeof item === 'object' && item !== null) {
+                                                        // Try multiple field name variations
+                                                        const queryText = item.query_text || item.question || item.query || item.text || item.prompt || item.input || item.content || item.message || '';
+
+                                                        if (!queryText.trim()) {
+                                                            console.warn(`Query at tasks.${taskType}[${itemIdx}] missing text field. Available fields:`, Object.keys(item));
+                                                            // Skip this item if no text found
+                                                            return;
+                                                        }
+
+                                                        queries.push({
+                                                            task: taskType,
+                                                            subject: item.subject || subject || '',
+                                                            query_text: queryText,
+                                                            difficulty: item.difficulty || item.level || 'medium',
+                                                            reference: item.reference || item.answer || item.ground_truth || item.expected || item.target || item.correct_answer || ''
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+
+                                        // Also check for direct queries array at root level
+                                        if (parsed.queries && Array.isArray(parsed.queries)) {
+                                            parsed.queries.forEach(item => {
+                                                if (typeof item === 'object' && item !== null) {
+                                                    queries.push({
+                                                        task: item.task || item.taskType || 'qa',
+                                                        subject: item.subject || subject || '',
+                                                        query_text: item.query_text || item.question || item.query || item.text || item.prompt || '',
+                                                        difficulty: item.difficulty || 'medium',
+                                                        reference: item.reference || item.answer || item.ground_truth || item.expected || ''
+                                                    });
+                                                }
+                                            });
+                                        }
+
+                                    } else if (parsed.queries && Array.isArray(parsed.queries)) {
+                                        // Handle { queries: [...] } structure
+                                        queries = parsed.queries.map(item => ({
+                                            task: item.task || item.taskType || parsed.task || 'qa',
+                                            subject: item.subject || parsed.subject || '',
+                                            query_text: item.query_text || item.question || item.query || item.text || item.prompt || '',
+                                            difficulty: item.difficulty || 'medium',
+                                            reference: item.reference || item.answer || item.ground_truth || item.expected || ''
+                                        })).filter(item => item.query_text.trim() !== '');
+
+                                    } else {
+                                        // Single object - check if it has query fields
+                                        const query = {
+                                            task: parsed.task || parsed.taskType || 'qa',
+                                            subject: parsed.subject || '',
+                                            query_text: parsed.query_text || parsed.question || parsed.query || parsed.text || parsed.prompt || '',
+                                            difficulty: parsed.difficulty || 'medium',
+                                            reference: parsed.reference || parsed.answer || parsed.ground_truth || parsed.expected || ''
+                                        };
+
+                                        if (query.query_text.trim()) {
+                                            queries = [query];
+                                        }
+                                    }
+                                } else {
+                                    throw new Error('JSON must be an array, object with tasks/queries, or a single query object');
+                                }
+
+                                // Filter out empty queries
+                                queries = queries.filter(item => item.query_text && item.query_text.trim() !== '');
+
+                                if (queries.length === 0) {
+                                    // Provide more helpful error message
+                                    let errorMsg = 'No valid queries found. ';
+                                    if (parsed.tasks) {
+                                        errorMsg += 'Queries in tasks object must have one of these fields: query_text, question, query, text, prompt, input, content, or message. ';
+                                        errorMsg += 'Found structure: ' + JSON.stringify(Object.keys(parsed.tasks)) + '. ';
+                                        // Try to show what fields are actually in the first query
+                                        const firstTask = Object.keys(parsed.tasks)[0];
+                                        if (firstTask && parsed.tasks[firstTask] && Array.isArray(parsed.tasks[firstTask]) && parsed.tasks[firstTask].length > 0) {
+                                            const firstItem = parsed.tasks[firstTask][0];
+                                            if (typeof firstItem === 'object') {
+                                                errorMsg += 'First query fields: ' + Object.keys(firstItem).join(', ') + '.';
+                                            }
+                                        }
+                                    } else {
+                                        errorMsg += 'Ensure queries have query_text, question, query, text, prompt, input, content, or message field.';
+                                    }
+                                    throw new Error(errorMsg);
+                                }
+
+                                evalState.queries = queries;
+                                document.getElementById('evalQueries').value = JSON.stringify(queries, null, 2);
+                                updateEvalQueriesCount();
+                                showToast(`Successfully loaded ${queries.length} queries`, 'success');
+                            } catch (err) {
+                                console.error('JSON parsing error:', err);
+                                let errorMsg = 'Invalid JSON file: ';
+                                if (err.message.includes('JSON')) {
+                                    errorMsg += err.message;
+                                } else if (err.message.includes('Unexpected')) {
+                                    errorMsg += 'Malformed JSON syntax. Please check your JSON format.';
+                                } else {
+                                    errorMsg += err.message;
+                                }
+                                errorMsg += '\n\nExpected format: [{"task": "qa", "subject": "mathematics", "query_text": "...", "difficulty": "easy", "reference": "..."}, ...]';
+                                showToast(errorMsg.substring(0, 200), 'error'); // Limit toast message length
+
+                                // Clear file input so user can try again
+                                event.target.value = '';
+                            }
+                        } else if (file.name.endsWith('.csv')) {
+                            try {
+                                parseCSVQueries(content);
+                                // Clear file input on success
+                                event.target.value = '';
+                            } catch (err) {
+                                console.error('CSV parsing error:', err);
+                                showToast('CSV parsing error: ' + err.message, 'error');
+                                event.target.value = '';
+                            }
+                        } else {
+                            showToast('Unsupported file type. Please use .json or .csv files', 'error');
+                            event.target.value = '';
+                        }
+                    } catch (err) {
+                        console.error('Error in file processing:', err);
+                        showToast('Error processing file: ' + err.message, 'error');
+                        event.target.value = '';
+                    }
+                };
+                reader.onerror = (error) => {
+                    console.error('FileReader error:', error);
+                    showToast('Error reading file. Please try again.', 'error');
+                    event.target.value = '';
+                };
+                reader.onabort = () => {
+                    showToast('File reading was cancelled', 'error');
+                    event.target.value = '';
+                };
+                try {
+                    reader.readAsText(file);
+                } catch (err) {
+                    console.error('Error starting file read:', err);
+                    showToast('Error reading file: ' + err.message, 'error');
+                    event.target.value = '';
+                }
+            }
+
+            function parseCSVQueries(csv) {
+                const lines = csv.split('\n').filter(l => l.trim() && !l.trim().startsWith('//'));
+                if (lines.length < 2) {
+                    throw new Error('CSV must have header row and at least one data row');
+                }
+
+                // Handle quoted CSV values
+                const parseCSVLine = (line) => {
+                    const result = [];
+                    let current = '';
+                    let inQuotes = false;
+
+                    for (let i = 0; i < line.length; i++) {
+                        const char = line[i];
+                        if (char === '"') {
+                            inQuotes = !inQuotes;
+                        } else if (char === ',' && !inQuotes) {
+                            result.push(current.trim());
+                            current = '';
+                        } else {
+                            current += char;
+                        }
+                    }
+                    result.push(current.trim());
+                    return result;
+                };
+
+                const headers = parseCSVLine(lines[0]).map(h => h.replace(/^"|"$/g, '').trim());
+                const queries = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    const values = parseCSVLine(lines[i]).map(v => v.replace(/^"|"$/g, '').trim());
+                    if (values.length === 0 || values.every(v => !v)) continue; // Skip empty rows
+
+                    const query = {};
+                    headers.forEach((header, idx) => {
+                        query[header] = values[idx] || '';
+                    });
+
+                    // Normalize field names
+                    const normalized = {
+                        task: query.task || query.taskType || 'qa',
+                        subject: query.subject || '',
+                        query_text: query.query_text || query.question || query.query || '',
+                        difficulty: query.difficulty || 'medium',
+                        reference: query.reference || query.answer || ''
+                    };
+
+                    if (normalized.query_text.trim()) {
+                        queries.push(normalized);
+                    }
+                }
+
+                if (queries.length === 0) {
+                    throw new Error('No valid queries found in CSV');
+                }
+
+                evalState.queries = queries;
+                document.getElementById('evalQueries').value = JSON.stringify(queries, null, 2);
+                updateEvalQueriesCount();
+                showToast(`CSV parsed successfully - ${queries.length} queries loaded`, 'success');
+            }
+
+            function loadExampleQueries() {
+                const examples = [
+                    { task: 'qa', subject: 'mathematics', query_text: 'What is the derivative of x^2?', difficulty: 'easy', reference: '2x' },
+                    { task: 'qa', subject: 'mathematics', query_text: 'Solve the quadratic equation x^2 - 5x + 6 = 0', difficulty: 'medium', reference: 'x = 2 or x = 3' },
+                    { task: 'summarize', subject: 'physics', query_text: 'Quantum mechanics is a fundamental theory in physics that provides a description of the physical properties of nature at the scale of atoms and subatomic particles. It is the foundation of all quantum physics including quantum chemistry, quantum field theory, quantum technology, and quantum information science.', difficulty: 'medium', reference: 'Quantum mechanics describes atomic and subatomic particle behavior' },
+                    { task: 'explain', subject: 'biology', query_text: 'Explain photosynthesis', difficulty: 'easy', reference: 'Process by which plants convert light energy into chemical energy' },
+                    { task: 'qa', subject: 'computer_science', query_text: 'What is the time complexity of binary search?', difficulty: 'medium', reference: 'O(log n)' }
+                ];
+                evalState.queries = examples;
+                document.getElementById('evalQueries').value = JSON.stringify(examples, null, 2);
+                updateEvalQueriesCount();
+                showToast('Example queries loaded', 'success');
+            }
+
+            function updateEvalQueriesCount() {
+                const textarea = document.getElementById('evalQueries');
+                if (!textarea) return;
+
+                const content = textarea.value.trim();
+                if (!content) {
+                    evalState.queries = [];
+                    document.getElementById('evalQueriesCount').textContent = '0';
+                    return;
+                }
+
+                try {
+                    // Try to parse as JSON
+                    const parsed = JSON.parse(content);
+
+                    if (Array.isArray(parsed)) {
+                        // Validate and clean queries
+                        evalState.queries = parsed
+                            .filter(item => item && typeof item === 'object')
+                            .map(item => ({
+                                task: item.task || item.taskType || 'qa',
+                                subject: item.subject || '',
+                                query_text: item.query_text || item.question || item.query || '',
+                                difficulty: item.difficulty || 'medium',
+                                reference: item.reference || item.answer || ''
+                            }))
+                            .filter(item => item.query_text.trim() !== '');
+                    } else if (typeof parsed === 'object' && parsed !== null) {
+                        // Single object
+                        const query = {
+                            task: parsed.task || parsed.taskType || 'qa',
+                            subject: parsed.subject || '',
+                            query_text: parsed.query_text || parsed.question || parsed.query || '',
+                            difficulty: parsed.difficulty || 'medium',
+                            reference: parsed.reference || parsed.answer || ''
+                        };
+                        evalState.queries = query.query_text.trim() ? [query] : [];
+                    } else {
+                        evalState.queries = [];
+                    }
+                } catch (err) {
+                    // Not valid JSON - try to detect if it's partial JSON
+                    if (content.startsWith('[') || content.startsWith('{')) {
+                        // Looks like JSON but invalid - don't update count, show error
+                        document.getElementById('evalQueriesCount').textContent = 'Invalid JSON';
+                        return;
+                    }
+
+                    // Try to parse as CSV or count lines
+                    const lines = content.split('\n').filter(l => l.trim() && !l.trim().startsWith('//'));
+                    if (lines.length > 0 && lines[0].includes(',')) {
+                        // Looks like CSV
+                        try {
+                            parseCSVQueries(content);
+                            return;
+                        } catch {
+                            // Not CSV either
+                        }
+                    }
+
+                    // Fallback: treat each non-empty line as a query
+                    evalState.queries = lines.map((line, idx) => ({
+                        id: idx,
+                        query_text: line,
+                        task: 'qa',
+                        subject: '',
+                        difficulty: 'medium'
+                    }));
+                }
+
+                const count = evalState.queries.length;
+                document.getElementById('evalQueriesCount').textContent = count > 0 ? `${count} queries loaded` : '0 queries loaded';
+                updateSubmitButton();
+            }
+
+
+            async function runBatchEvaluation() {
+                if (evalState.isRunning) return;
+
+                const mode = evalState.mode;
+
+                // Mode-specific validation
+                if (mode === 'llm') {
+                    const selectedTasks = Array.from(document.querySelectorAll('.eval-task:checked')).map(cb => cb.value);
+                    if (selectedTasks.length === 0) {
+                        showToast('Select at least one task', 'error');
+                        return;
+                    }
+                    const selectedSubjects = Array.from(document.getElementById('evalSubjects').selectedOptions).map(opt => opt.value);
+                    if (selectedSubjects.length === 0) {
+                        showToast('Select at least one subject', 'error');
+                        return;
+                    }
+                    if (evalState.queries.length === 0) {
+                        showToast('Enter or load queries', 'error');
+                        return;
+                    }
+                } else if (mode === 'ocr' || mode === 'parser') {
+                    if (evalState.uploadedFiles.length === 0) {
+                        showToast('Upload at least one document', 'error');
+                        return;
+                    }
+                }
+
+                if (evalState.selectedModels.length < 2) {
+                    showToast(`Select at least 2 ${mode === 'ocr' ? 'OCR configs' : 'models'} for evaluation`, 'error');
+                    return;
+                }
+
+                evalState.isRunning = true;
+                evalState.results = [];
+                showLoading(true);
+                document.getElementById('loadingText').textContent = `Running ${mode.toUpperCase()} evaluation...`;
+
+                try {
+                    if (mode === 'llm') {
+                        await runLLMEvaluation();
+                    } else if (mode === 'ocr') {
+                        await runOCREvaluation();
+                    } else if (mode === 'parser') {
+                        await runParserEvaluation();
+                    }
+
+                    displayEvaluationResults();
+                    showToast('Evaluation completed!', 'success');
+                } catch (error) {
+                    console.error('Evaluation error:', error);
+                    showError(error.message);
+                    showToast('Evaluation failed', 'error');
+                } finally {
+                    showLoading(false);
+                    evalState.isRunning = false;
+                }
+            }
+
+            async function runLLMEvaluation() {
+                const runs = parseInt(document.getElementById('evalRuns').value) || 1;
+                const useAutoScore = document.getElementById('evalAutoScore').checked;
+                const judgeModel = document.getElementById('evalJudgeModel').value;
+                const selectedTasks = Array.from(document.querySelectorAll('.eval-task:checked')).map(cb => cb.value);
+                const selectedSubjects = Array.from(document.getElementById('evalSubjects').selectedOptions).map(opt => opt.value);
+
+                const allQueries = [];
+                selectedTasks.forEach(task => {
+                    selectedSubjects.forEach(subject => {
+                        evalState.queries.forEach(query => {
+                            if ((!query.task || query.task === task) && (!query.subject || query.subject === subject || query.subject === '')) {
+                                for (let run = 0; run < runs; run++) {
+                                    allQueries.push({
+                                        ...query,
+                                        task: query.task || task,
+                                        subject: query.subject || subject || '',
+                                        run: run + 1
+                                    });
+                                }
+                            }
+                        });
+                    });
+                });
+
+                document.getElementById('loadingSubtext').textContent = `Processing ${allQueries.length} queries...`;
+
+                const response = await fetch('http://localhost:3000/api/batch-eval', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        queries: allQueries.map(q => ({
+                            question: q.query_text,
+                            query_text: q.query_text,
+                            subject: q.subject || '',
+                            taskType: q.task || 'qa',
+                            task: q.task || 'qa',
+                            reference: q.reference || q.answer || ''
+                        })),
+                        modelIds: evalState.selectedModels,
+                        runs: runs
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}` }));
+                    throw new Error(errorData.error || `Request failed: ${response.status}`);
+                }
+
+                const data = await response.json();
+                if (!data.success) {
+                    throw new Error(data.error || 'Evaluation failed');
+                }
+
+                evalState.results = data.results || [];
+                if (data.metrics) {
+                    evalState.aggregatedMetrics = data.metrics;
+                }
+
+                if (useAutoScore && evalState.results.length > 0) {
+                    document.getElementById('loadingSubtext').textContent = 'Running LLM-as-judge evaluation...';
+                    for (const result of evalState.results) {
+                        if (result.results && !result.autoScores) {
+                            result.autoScores = await scoreWithLLM(result.results, result.query, judgeModel);
+                        }
+                    }
+                }
+            }
+
+            async function runOCREvaluation() {
+                const results = [];
+
+                for (let fileIdx = 0; fileIdx < evalState.uploadedFiles.length; fileIdx++) {
+                    const file = evalState.uploadedFiles[fileIdx];
+                    document.getElementById('loadingSubtext').textContent = `Processing document ${fileIdx + 1}/${evalState.uploadedFiles.length}: ${file.name}...`;
+
+                    const formData = new FormData();
+                    formData.append('document', file);
+                    formData.append('modelIds', JSON.stringify(evalState.selectedModels));
+
+                    const response = await fetch('http://localhost:3000/api/ocr-compare', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}` }));
+                        throw new Error(`Document ${file.name}: ${errorData.error || 'OCR processing failed'}`);
+                    }
+
+                    const data = await response.json();
+                    if (data.success) {
+                        results.push({
+                            fileName: file.name,
+                            results: data.results,
+                            timestamp: new Date().toISOString()
+                        });
+                    } else {
+                        throw new Error(`Document ${file.name}: ${data.error || 'OCR processing failed'}`);
+                    }
+                }
+
+                evalState.results = results;
+            }
+
+            async function runParserEvaluation() {
+                const results = [];
+
+                for (let fileIdx = 0; fileIdx < evalState.uploadedFiles.length; fileIdx++) {
+                    const file = evalState.uploadedFiles[fileIdx];
+                    document.getElementById('loadingSubtext').textContent = `Processing document ${fileIdx + 1}/${evalState.uploadedFiles.length}: ${file.name} (OCR + LLM)...`;
+
+                    // Step 1: OCR extraction (use first OCR config as default)
+                    const ocrFormData = new FormData();
+                    ocrFormData.append('document', file);
+                    ocrFormData.append('modelId', 'tesseract-accurate');
+
+                    const ocrResponse = await fetch('http://localhost:3000/api/ocr', {
+                        method: 'POST',
+                        body: ocrFormData
+                    });
+
+                    if (!ocrResponse.ok) {
+                        throw new Error(`OCR extraction failed for ${file.name}`);
+                    }
+
+                    const ocrData = await ocrResponse.json();
+                    if (!ocrData.success || !ocrData.text) {
+                        throw new Error(`No text extracted from ${file.name}`);
+                    }
+
+                    const extractedText = ocrData.text;
+
+                    // Step 2: Process extracted text with LLMs
+                    const llmResults = [];
+                    for (const modelId of evalState.selectedModels) {
+                        try {
+                            const prompt = `You are an expert assistant. Analyze and process the following text extracted from a document. Provide a clear, structured summary and key insights.\n\nExtracted Text:\n${extractedText}\n\nPlease provide:\n1. A concise summary\n2. Key points or findings\n3. Any important details or recommendations`;
+
+                            const llmResponse = await fetch('http://localhost:3000/api/ask', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    question: prompt,
+                                    subject: '',
+                                    taskType: 'summarize',
+                                    modelId: modelId
+                                })
+                            });
+
+                            if (llmResponse.ok) {
+                                const llmData = await llmResponse.json();
+                                llmResults.push({
+                                    modelId: modelId,
+                                    model: MODELS.llm.find(m => m.id === modelId),
+                                    ocrText: extractedText,
+                                    parsedAnswer: llmData.answer,
+                                    responseTime: llmData.responseTime,
+                                    ocrConfidence: ocrData.confidence,
+                                    success: true
+                                });
+                            } else {
+                                llmResults.push({
+                                    modelId: modelId,
+                                    error: 'LLM processing failed',
+                                    success: false
+                                });
+                            }
+                        } catch (error) {
+                            llmResults.push({
+                                modelId: modelId,
+                                error: error.message,
+                                success: false
+                            });
+                        }
+                    }
+
+                    results.push({
+                        fileName: file.name,
+                        ocrResult: {
+                            text: extractedText,
+                            confidence: ocrData.confidence,
+                            words: ocrData.words
+                        },
+                        llmResults: llmResults,
+                        timestamp: new Date().toISOString()
+                    });
+                }
+
+                evalState.results = results;
+            }
+
+            async function scoreWithLLM(results, query, judgeModel) {
+                const scores = [];
+                for (const result of results) {
+                    if (result.success && result.answer) {
+                        try {
+                            const response = await fetch('http://localhost:3000/api/auto-eval', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    response: result.answer,
+                                    query: query,
+                                    reference: query.reference,
+                                    judgeModel: judgeModel
+                                })
+                            });
+
+                            if (!response.ok) {
+                                const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}` }));
+                                throw new Error(errorData.error || `Auto-eval failed: ${response.status}`);
+                            }
+
+                            const data = await response.json();
+                            if (data.success) {
+                                scores.push({
+                                    modelId: result.modelId,
+                                    ...data.scores
+                                });
+                            } else {
+                                scores.push({
+                                    modelId: result.modelId,
+                                    accuracy: 3,
+                                    completeness: 3,
+                                    clarity: 3,
+                                    relevance: 3,
+                                    educationalValue: 3
+                                });
+                            }
+                        } catch (error) {
+                            console.error('Auto-score error:', error);
+                            scores.push({
+                                modelId: result.modelId,
+                                accuracy: 3,
+                                completeness: 3,
+                                clarity: 3,
+                                relevance: 3,
+                                educationalValue: 3
+                            });
+                        }
+                    }
+                }
+                return scores;
+            }
+
+            function displayEvaluationResults() {
+                const resultsSection = document.getElementById('resultsSection');
+                const resultsGrid = document.getElementById('resultsGrid');
+
+                resultsSection.classList.add('visible');
+                document.getElementById('resultsTitle').textContent = 'Evaluation Results';
+
+                // Calculate aggregates
+                const aggregates = calculateAggregates(evalState.results);
+
+                // Display summary with chart
+                let html = `
+                    <div style="grid-column: 1 / -1; background: white; padding: 24px; border-radius: 12px; margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 16px;">📊 Evaluation Summary</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--primary);">${evalState.results.length}</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Total Queries</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--secondary);">${aggregates.avgResponseTime.toFixed(0)}ms</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Avg Response Time</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: var(--accent);">${aggregates.bestModel}</div>
+                                <div style="font-size: 13px; color: var(--text-secondary);">Best Overall Model</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 24px;">
+                            <canvas id="evalChart" style="max-height: 300px;"></canvas>
+                        </div>
+                    </div>
+                `;
+
+                // Display results based on mode
+                const mode = evalState.mode;
+
+                if (mode === 'llm') {
+                    // LLM mode - existing structure
+                    evalState.results.forEach((result, idx) => {
+                        if (result.error) {
+                            html += `<div class="result-card" style="grid-column: 1 / -1;"><div class="result-content"><div class="result-error">Error: ${result.error}</div></div></div>`;
+                            return;
+                        }
+                        if (result.results) {
+                            result.results.forEach(modelResult => {
+                                const model = MODELS.llm.find(m => m.id === modelResult.modelId);
+                                html += `
+                                    <div class="result-card">
+                                        <div class="result-card-header">
+                                            <div class="result-model-info">
+                                                <div class="result-model-icon">${model?.icon || '🤖'}</div>
+                                                <div class="result-model-details">
+                                                    <h4>${modelResult.model?.name || 'Unknown'}</h4>
+                                                    <p>${result.query?.task || 'N/A'} • ${result.query?.subject || 'General'}</p>
+                                                </div>
+                                            </div>
+                                            <div class="result-metrics">
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">⏱️</span>
+                                                    <span class="metric-value">${((modelResult.responseTime || 0) / 1000).toFixed(2)}s</span>
+                                                </div>
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">📝</span>
+                                                    <span class="metric-value">${(modelResult.answer || '').length}</span>
+                                                    <span class="metric-label">chars</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="result-content">
+                                            <div style="margin-bottom: 12px;">
+                                                <strong>Query:</strong> ${escapeHtml(result.query?.query_text || 'N/A')}
+                                            </div>
+                                            <div class="result-text">${escapeHtml(modelResult.answer || modelResult.error || 'No response')}</div>
+                                        </div>
+                                        <div class="result-card-footer">
+                                            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(modelResult.answer || '')}')">
+                                                <span>📋</span><span>Copy</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                        }
+                    });
+                } else if (mode === 'ocr') {
+                    // OCR mode
+                    evalState.results.forEach((result) => {
+                        if (result.results) {
+                            result.results.forEach(ocrResult => {
+                                const ocrConfig = MODELS.ocr.find(m => m.id === ocrResult.modelId);
+                                html += `
+                                    <div class="result-card">
+                                        <div class="result-card-header">
+                                            <div class="result-model-info">
+                                                <div class="result-model-icon">${ocrConfig?.icon || '📄'}</div>
+                                                <div class="result-model-details">
+                                                    <h4>${ocrResult.model?.name || 'Unknown'}</h4>
+                                                    <p>📄 ${result.fileName || 'Document'}</p>
+                                                </div>
+                                            </div>
+                                            <div class="result-metrics">
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">🎯</span>
+                                                    <span class="metric-value">${(ocrResult.confidence || 0).toFixed(1)}%</span>
+                                                </div>
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">📝</span>
+                                                    <span class="metric-value">${ocrResult.words || 0}</span>
+                                                    <span class="metric-label">words</span>
+                                                </div>
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">⏱️</span>
+                                                    <span class="metric-value">${((ocrResult.responseTime || 0) / 1000).toFixed(2)}s</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="result-content">
+                                            <div class="result-text" style="max-height: 400px; overflow-y: auto;">${escapeHtml(ocrResult.text || ocrResult.error || 'No text extracted')}</div>
+                                        </div>
+                                        <div class="result-card-footer">
+                                            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(ocrResult.text || '')}')">
+                                                <span>📋</span><span>Copy</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                        }
+                    });
+                } else if (mode === 'parser') {
+                    // Parser mode (OCR + LLM)
+                    evalState.results.forEach((result) => {
+                        html += `
+                            <div class="result-card" style="grid-column: 1 / -1; margin-bottom: 16px;">
+                                <div class="result-card-header">
+                                    <h4 style="margin: 0;">📄 ${result.fileName || 'Document'}</h4>
+                                    <div style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);">
+                                        OCR Confidence: ${(result.ocrResult?.confidence || 0).toFixed(1)}% • 
+                                        Words Extracted: ${result.ocrResult?.words || 0}
+                                    </div>
+                                </div>
+                                <div class="result-content" style="margin-top: 16px;">
+                                    <details style="margin-bottom: 16px;">
+                                        <summary style="cursor: pointer; font-weight: 600; margin-bottom: 8px;">📄 OCR Extracted Text</summary>
+                                        <div style="max-height: 200px; overflow-y: auto; padding: 12px; background: var(--bg-light); border-radius: 8px; font-family: monospace; font-size: 12px;">
+                                            ${escapeHtml(result.ocrResult?.text || 'No text extracted')}
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        `;
+
+                        if (result.llmResults) {
+                            result.llmResults.forEach(llmResult => {
+                                const model = MODELS.llm.find(m => m.id === llmResult.modelId);
+                                html += `
+                                    <div class="result-card">
+                                        <div class="result-card-header">
+                                            <div class="result-model-info">
+                                                <div class="result-model-icon">${model?.icon || '🤖'}</div>
+                                                <div class="result-model-details">
+                                                    <h4>${llmResult.model?.name || 'Unknown'}</h4>
+                                                    <p>🔄 Parsed Result</p>
+                                                </div>
+                                            </div>
+                                            <div class="result-metrics">
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">⏱️</span>
+                                                    <span class="metric-value">${((llmResult.responseTime || 0) / 1000).toFixed(2)}s</span>
+                                                </div>
+                                                <div class="result-metric">
+                                                    <span class="metric-icon">📝</span>
+                                                    <span class="metric-value">${(llmResult.parsedAnswer || '').length}</span>
+                                                    <span class="metric-label">chars</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="result-content">
+                                            <div class="result-text">${escapeHtml(llmResult.parsedAnswer || llmResult.error || 'No response')}</div>
+                                        </div>
+                                        <div class="result-card-footer">
+                                            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(llmResult.parsedAnswer || '')}')">
+                                                <span>📋</span><span>Copy</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                `;
+                            });
+                        }
+                    });
+                }
+
+                resultsGrid.innerHTML = html;
+
+                // Create chart
+                createEvaluationChart(aggregates);
+
+                // Display aggregates table
+                displayAggregatesTable(aggregates);
+            }
+
+            function createEvaluationChart(aggregates) {
+                const ctx = document.getElementById('evalChart');
+                if (!ctx) return;
+
+                const modelNames = aggregates.modelStats.map(s => s.name);
+                const avgTimes = aggregates.modelStats.map(s => s.avgTime / 1000); // Convert to seconds
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: modelNames,
+                        datasets: [{
+                            label: 'Average Response Time (seconds)',
+                            data: avgTimes,
+                            backgroundColor: 'rgba(99, 102, 241, 0.6)',
+                            borderColor: 'rgba(99, 102, 241, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Model Performance Comparison'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Time (seconds)'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Models'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function calculateAggregates(results) {
+                const modelStats = {};
+                let totalTime = 0;
+                let count = 0;
+
+                results.forEach(result => {
+                    if (result.results) {
+                        result.results.forEach(r => {
+                            if (!modelStats[r.modelId]) {
+                                modelStats[r.modelId] = { times: [], counts: 0, name: r.model?.name || r.modelId };
+                            }
+                            if (r.responseTime) {
+                                modelStats[r.modelId].times.push(r.responseTime);
+                                totalTime += r.responseTime;
+                                count++;
+                            }
+                            modelStats[r.modelId].counts++;
+                        });
+                    }
+                });
+
+                const avgByModel = Object.entries(modelStats).map(([id, stats]) => ({
+                    modelId: id,
+                    name: stats.name,
+                    avgTime: stats.times.reduce((a, b) => a + b, 0) / stats.times.length || 0,
+                    count: stats.counts
+                }));
+
+                const bestModel = avgByModel.sort((a, b) => a.avgTime - b.avgTime)[0]?.name || 'N/A';
+
+                return {
+                    avgResponseTime: totalTime / count || 0,
+                    bestModel,
+                    modelStats: avgByModel
+                };
+            }
+
+            function displayAggregatesTable(aggregates) {
+                const statsSection = document.getElementById('statsSection');
+                const statsGrid = document.getElementById('statsGrid');
+                statsSection.classList.add('visible');
+
+                statsGrid.innerHTML = `
+                    <div class="stat-card" style="grid-column: 1 / -1; text-align: left; padding: 20px;">
+                        <h4 style="margin-bottom: 16px;">Model Performance Summary</h4>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--border);">
+                                    <th style="padding: 8px; text-align: left;">Model</th>
+                                    <th style="padding: 8px; text-align: right;">Avg Time</th>
+                                    <th style="padding: 8px; text-align: right;">Queries</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${aggregates.modelStats.map(stat => `
+                                    <tr style="border-bottom: 1px solid var(--border);">
+                                        <td style="padding: 8px;">${stat.name}</td>
+                                        <td style="padding: 8px; text-align: right;">${(stat.avgTime / 1000).toFixed(2)}s</td>
+                                        <td style="padding: 8px; text-align: right;">${stat.count}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('Copied to clipboard!', 'success');
+                });
+            }
+
+            function handleExport() {
+                if (state.appMode === 'evaluation') {
+                    exportEvaluationResults();
+                } else {
+                    exportResults();
+                }
+            }
+
+            // Update export button text when mode changes
+            const originalSwitchAppMode = switchAppMode;
+            switchAppMode = function (mode) {
+                originalSwitchAppMode(mode);
+                const exportBtnText = document.getElementById('exportBtnText');
+                if (exportBtnText) {
+                    exportBtnText.textContent = mode === 'evaluation' ? 'Export Evaluation' : 'Export JSON';
+                }
+            };
+
+            function exportEvaluationResults() {
+                if (evalState.results.length === 0) {
+                    showToast('No results to export', 'error');
+                    return;
+                }
+
+                const exportData = {
+                    timestamp: new Date().toISOString(),
+                    configuration: {
+                        models: evalState.selectedModels,
+                        tasks: Array.from(document.querySelectorAll('.eval-task:checked')).map(cb => cb.value),
+                        subjects: Array.from(document.getElementById('evalSubjects').selectedOptions).map(opt => opt.value),
+                        runs: parseInt(document.getElementById('evalRuns').value) || 1
+                    },
+                    results: evalState.results,
+                    aggregates: calculateAggregates(evalState.results)
+                };
+
+                const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `evaluation-results-${Date.now()}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showToast('Results exported!', 'success');
+            }
+
+            // Update handleSubmit to support evaluation mode
+            const originalHandleSubmit = handleSubmit;
+            window.handleSubmit = function () {
+                if (state.appMode === 'evaluation') {
+                    runBatchEvaluation();
+                } else {
+                    originalHandleSubmit();
+                }
+            };
+        </script>
+    </body>
+
+</html>

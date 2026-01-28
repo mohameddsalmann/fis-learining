@@ -1,0 +1,38 @@
+[
+  {
+    "task": "qa",
+    "subject": "mathematics",
+    "query_text": "What is the derivative of x^2?",
+    "difficulty": "easy",
+    "reference": "2x"
+  },
+  {
+    "task": "qa",
+    "subject": "mathematics",
+    "query_text": "Solve the quadratic equation x^2 - 5x + 6 = 0",
+    "difficulty": "medium",
+    "reference": "x = 2 or x = 3"
+  },
+  {
+    "task": "summarize",
+    "subject": "physics",
+    "query_text": "Quantum mechanics is a fundamental theory in physics that provides a description of the physical properties of nature at the scale of atoms and subatomic particles. It is the foundation of all quantum physics including quantum chemistry, quantum field theory, quantum technology, and quantum information science.",
+    "difficulty": "medium",
+    "reference": "Quantum mechanics describes atomic and subatomic particle behavior"
+  },
+  {
+    "task": "explain",
+    "subject": "biology",
+    "query_text": "Explain photosynthesis",
+    "difficulty": "easy",
+    "reference": "Process by which plants convert light energy into chemical energy"
+  },
+  {
+    "task": "qa",
+    "subject": "computer_science",
+    "query_text": "What is the time complexity of binary search?",
+    "difficulty": "medium",
+    "reference": "O(log n)"
+  }
+]
+

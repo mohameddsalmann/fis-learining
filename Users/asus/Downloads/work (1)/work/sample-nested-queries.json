@@ -1,0 +1,47 @@
+{
+  "subject": "Computer Science",
+  "description": "Computer Science queries covering algorithms, data structures, computer architecture, and theoretical CS for educational platform evaluation",
+  "tasks": {
+    "qa": [
+      {
+        "query_text": "What is the time complexity of binary search?",
+        "difficulty": "medium",
+        "reference": "O(log n)"
+      },
+      {
+        "question": "What is a hash table?",
+        "difficulty": "easy",
+        "answer": "A data structure that maps keys to values using a hash function"
+      },
+      {
+        "text": "Explain the difference between stack and queue",
+        "difficulty": "medium",
+        "ground_truth": "Stack is LIFO, queue is FIFO"
+      }
+    ],
+    "summarize": [
+      {
+        "query_text": "Summarize the concept of object-oriented programming",
+        "difficulty": "medium",
+        "reference": "OOP is a programming paradigm based on objects and classes"
+      }
+    ],
+    "explain": [
+      {
+        "prompt": "Explain recursion in programming",
+        "difficulty": "medium",
+        "expected": "Recursion is when a function calls itself"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
